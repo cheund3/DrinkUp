@@ -1,3 +1,0 @@
-# DrinkUp
-
-TODO: Add description of app...
