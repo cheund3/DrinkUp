@@ -1,15 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "airbnb",
-    "plugin:jsx-a11y/recommended",
-    "plugin:flowtype/recommended"
-  ],
   "plugins": [
-    "react",
-    "flowtype",
-    "jsx-a11y",
-    "import"
+    "react"
   ],
   "rules": {
     "react/jsx-filename-extension": [
@@ -17,15 +9,6 @@
     ],
     "react/forbid-prop-types": [0, { "forbid": [] }],
     "react/prefer-stateless-function": "off",
-    "import/extensions": [1, "never", { "svg": "always" }],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": false,
-        "peerDependencies": false
-      }
-    ],
     "semi": ["error", "always"],
     "indent": ["error", 2],
     "quotes": [1, "single"]
