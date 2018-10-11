@@ -1,6 +1,10 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:jsx-a11y/recommended",
+    "plugin:flowtype/recommended"
+  ],
   "plugins": [
     "react",
     "flowtype",
@@ -23,7 +27,8 @@
       }
     ],
     "semi": ["error", "always"],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "quotes": [1, "double"]
   },
   "env": {
     "jest": true,

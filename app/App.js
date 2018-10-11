@@ -1,8 +1,6 @@
 /**
- * Sample React Native Index
- * https://github.com/facebook/react-native
- *
- * @format
+ * DrinkUp
+ * @author: Dylan L. Cheung
  * @flow
  */
 
