@@ -4,7 +4,7 @@
  * @author: Dylan l. Cheung <cheund3@rpi.edu>
  */
 
-describe("app/components/TestComponent", () => {
+describe("src/components/TestComponent", () => {
   let tmp;
 
   beforeAll(() => {

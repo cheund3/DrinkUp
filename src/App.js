@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import BarcodeScan from "./components/Scanner";
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +33,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>Hello World</Text>
         <Text style={styles.instructions}>Dylan Cheung</Text>
+        <BarcodeScan/>
       </View>
     );
   }
