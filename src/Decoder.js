@@ -1,12 +1,13 @@
 /**
- * DrinkUp
+ * Testing the PDF417 decoder. Replace usage of App.js in "../index.js" with Decoder.js
+ * Also uncomment the two decoders below
  * @author: Dylan L. Cheung
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import StackNavigator from "./navigators/RootStackNavigator";
-
+import { StyleSheet, View } from 'react-native';
+import BarcodeScan from "./components/Scanner";
+import ScannerV2 from "./components/ScannerV2";
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +31,10 @@ const styles = StyleSheet.create({
 export default class App extends Component {
   render() {
     return (
-      <StackNavigator/>
+      <View style={styles.container}>
+        {/*<BarcodeScan/>*/}
+        {/*<ScannerV2/>*/}
+      </View>
     );
   }
 }

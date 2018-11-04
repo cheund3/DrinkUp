@@ -52,4 +52,4 @@
             android:value="@integer/google_play_services_version" />
     </application>
 
-</manifest>
+</manifest> <!-- <uses-permission android:name="android.permission.VIBRATE"/> -->
