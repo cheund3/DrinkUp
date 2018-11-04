@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dylan/Projects/DrinkUp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt/values-pt.xml",
+            "outputFile": "C:\\Users\\prests1\\AndroidStudioProjects\\DrinkUp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
             "map": [
                 {
-                    "source": "/home/dylan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/c20a842e0deb797cb75f74803cbcb320/res/values-pt/values-pt.xml",
+                    "source": "C:\\Users\\prests1\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\88fc09d31f2ecaf509e85abe0c3a8449\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/dylan/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/495f8d9eafa1f3da530eeb7c9d5be111/res/values-pt/values-pt.xml",
+                    "source": "C:\\Users\\prests1\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\1da20e7f1a8f6b4cc2da15806a8b6ff7\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
