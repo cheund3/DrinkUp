@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dylan/Projects/DrinkUp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/home/dylan/Projects/DrinkUpProject/DrinkUp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
                     "source": "/home/dylan/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/495f8d9eafa1f3da530eeb7c9d5be111/res/values-v16/values-v16.xml",
