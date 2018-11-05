@@ -1,5 +1,5 @@
 import {SignUpState} from "./welcome/SignUpState";
-// import {UserProfileState} from "./UserProfileState";
+import {UserProfileState} from "./UserProfileState";
 // import {SignInState} from "./welcome/SignInState";
 // import {WelcomeState} from "./welcome/WelcomeState";
 
@@ -12,13 +12,13 @@ export class RootState {
 
   // signInState;
   signUpState;
-  // userProfileState;
+  userProfileState;
   // welcomeState;
 
   constructor() {
     // this.signInState = new SignInState();
     this.signUpState = new SignUpState();
-    // this.userProfileState = new UserProfileState();
+    this.userProfileState = new UserProfileState();
     // this.welcomeState = new WelcomeState();
   }
 
