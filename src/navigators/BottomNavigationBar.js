@@ -13,13 +13,13 @@ import {joinExistingEventStack} from "./navigation_bar/JoinExistingStack";
  */
 export default createBottomTabNavigator(
   {
-    UserProfile: UserProfileScreen,
-    PreviousEventsStack: previousEventStack,
-    CurrentEventStack: currentEventsStack,
-    NewEventStack: createNewEventsStack,
-    JoinExistingEventStack: joinExistingEventStack,
+    "Profile": UserProfileScreen,
+    "Previous Events": previousEventStack,
+    "Current Events": currentEventsStack,
+    "New Event": createNewEventsStack,
+    "Join an Event": joinExistingEventStack,
   },
   {
-    initialRouteName: "CurrentEventStack"
+    initialRouteName: "Profile"
   }
 );
