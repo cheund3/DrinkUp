@@ -11,8 +11,8 @@ export class JoinExistingEventScreen extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Join Existing Event</Text>
         <Button
-          title={"Sample Single Event"}
-          onPress={() => this.props.navigation.navigate("SingleEventScreen")}
+          title={"Join an event"}
+          onPress={() => {}}
         />
       </View>
     );

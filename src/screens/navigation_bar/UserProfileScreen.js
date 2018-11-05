@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, View} from "react-native";
+import {Button, Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 
 /**
@@ -12,15 +12,11 @@ export class UserProfileScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>
-          This page should be information about the logged in user. We should implement the ability to modify username,
-          email, and password (and any other information you can think of).
-        </Text>
         <Text>Data from state: {this.props.rootState.userProfileState.name}</Text>
-        {/*<Button*/}
-        {/*title="Update name field"*/}
-        {/*onPress={() => {this.props.rootState.userProfileState.updateName("Dylan")}}*/}
-        {/*/>*/}
+        <Button
+        title="Update name field"
+        onPress={() => {this.props.rootState.userProfileState.updateName("Dylan")}}
+        />
       </View>
     );
   }

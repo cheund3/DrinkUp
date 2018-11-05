@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import ScannerV2 from "../components/ScannerV2";
 
 /**
  * Scanner Screen
@@ -9,7 +10,7 @@ export class ScannerScreen extends React.Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> The barcode scanner will go here. Entering/leaving boolean will be passed through props </Text>
+        <ScannerV2/>
       </View>
     );
   }
