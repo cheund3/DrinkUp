@@ -15,7 +15,7 @@ export const createNewEventsStack = createStackNavigator({
         header: null
       })
     },
-    SingleEvent: SingleEventScreen
+    SingleEventScreen: SingleEventScreen
   },
   {
     initialRoutName: "CreateNewEvent"

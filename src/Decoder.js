@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import BarcodeScan from "./components/Scanner";
 import ScannerV2 from "./components/ScannerV2";
+import ScannerScene from "./components/ScannerV3";
 
 const styles = StyleSheet.create({
   container: {
@@ -34,6 +35,7 @@ export default class App extends Component {
       <View style={styles.container}>
         {/*<BarcodeScan/>*/}
         {/*<ScannerV2/>*/}
+      {/*<ScannerScene/>*/}
       </View>
     );
   }

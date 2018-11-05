@@ -9,7 +9,7 @@ import BottomNavigationBar from "./BottomNavigationBar";
  * Acts as the main entry point into the navigation of the application
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
-export default createStackNavigator(
+export const RootStackNavigator = createStackNavigator(
   {
     Welcome: {
       screen: WelcomeScreen,

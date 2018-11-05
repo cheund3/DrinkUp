@@ -9,8 +9,8 @@ import Camera from 'react-native-camera';
 
 export default class BarcodeScan extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       qrcode: ''
     }

@@ -15,7 +15,7 @@ export const joinExistingEventStack = createStackNavigator({
         header: null
       })
     },
-    SingleEvent: SingleEventScreen
+    SingleEventScreen: SingleEventScreen
   },
   {
     initialRouteName: "JoinExistingEvent"

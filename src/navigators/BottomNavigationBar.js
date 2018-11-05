@@ -17,7 +17,7 @@ export default createBottomTabNavigator(
     PreviousEventsStack: previousEventStack,
     CurrentEventStack: currentEventsStack,
     NewEventStack: createNewEventsStack,
-    JoinExistingEventStack: joinExistingEventStack
+    JoinExistingEventStack: joinExistingEventStack,
   },
   {
     initialRouteName: "CurrentEventStack"

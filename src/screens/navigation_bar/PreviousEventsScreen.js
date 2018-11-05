@@ -16,7 +16,7 @@ export class PreviousEventsScreen extends React.Component {
         </Text>
         <Button
           title={"Go to a single event"}
-          onPress={() => this.props.navigate("SingleEvent")}
+          onPress={() => this.props.navigate("SingleEventScreen")}
         />
       </View>
     );

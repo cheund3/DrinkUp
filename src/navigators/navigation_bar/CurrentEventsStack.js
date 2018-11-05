@@ -15,7 +15,7 @@ export const currentEventsStack = createStackNavigator({
           header: null
         })
       },
-    SingleEvent: SingleEventScreen
+    SingleEventScreen: SingleEventScreen
   },
   {
     initialRouteName: "CurrentEvents"
