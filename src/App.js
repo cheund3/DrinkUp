@@ -3,7 +3,7 @@
  * @author: Dylan L. Cheung
  */
 
-import React from 'react';
+import React from "react";
 import {RootState} from "./state/RootState";
 import {Provider} from "mobx-react";
 import { RootStackNavigator } from "./navigators/RootStackNavigator";
@@ -20,7 +20,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider rootState={this.rootState}>
-          <RootStackNavigator/>
+        <RootStackNavigator/>
       </Provider>
     );
   }

@@ -1,5 +1,5 @@
 import { createStackNavigator } from "react-navigation";
-import { SignInScreen } from "../screens/welcome/SignInScreen"
+import { SignInScreen } from "../screens/welcome/SignInScreen";
 import { SignUpScreen } from "../screens/welcome/SignUpScreen";
 import { WelcomeScreen } from "../screens/welcome/WelcomeScreen";
 import BottomNavigationBar from "./BottomNavigationBar";

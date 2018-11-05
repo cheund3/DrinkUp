@@ -9,15 +9,15 @@ import {SingleEventScreen} from "../../screens/SingleEventScreen";
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
 export const joinExistingEventStack = createStackNavigator({
-    JoinExistingEvent: {
-      screen: JoinExistingEventScreen,
-      navigationOptions: ({navigation}) => ({
-        header: null
-      })
-    },
-    SingleEventScreen: SingleEventScreen
+  JoinExistingEvent: {
+    screen: JoinExistingEventScreen,
+    navigationOptions: ({navigation}) => ({
+      header: null
+    })
   },
-  {
-    initialRouteName: "JoinExistingEvent"
-  }
+  SingleEventScreen: SingleEventScreen
+},
+{
+  initialRouteName: "JoinExistingEvent"
+}
 );

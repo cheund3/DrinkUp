@@ -6,8 +6,8 @@ import {inject, observer} from 'mobx-react';
  * Sign-In Screen
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
-@inject("rootState")
-@observer
+// @inject("rootState")
+// @observer
 export class SignInScreen extends React.Component {
   render() {
     return (

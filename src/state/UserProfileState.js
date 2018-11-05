@@ -3,11 +3,12 @@ import bind from "bind-decorator";
 
 export class UserProfileState {
 
-  @observable
-  name;
+  @observable name;
+  @observable data;
 
   constructor() {
-    this.name = "";
+    this.name = "sample name";
+    this.data = {};
   }
 
   @bind
