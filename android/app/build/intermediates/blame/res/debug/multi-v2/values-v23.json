@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\prests1\\AndroidStudioProjects\\DrinkUp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/dylan/Projects/DrinkUp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\prests1\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\88fc09d31f2ecaf509e85abe0c3a8449\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/dylan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/c20a842e0deb797cb75f74803cbcb320/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
