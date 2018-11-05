@@ -15,8 +15,8 @@ export class PreviousEventsScreen extends React.Component {
           not be allowed to update any data on the event (unlike how current events works).
         </Text>
         <Button
-          title={"Go to a single event"}
-          onPress={() => this.props.navigate("SingleEventScreen")}
+          title={"Sample Single Event"}
+          onPress={() => this.props.navigation.navigate("SingleEventScreen")}
         />
       </View>
     );

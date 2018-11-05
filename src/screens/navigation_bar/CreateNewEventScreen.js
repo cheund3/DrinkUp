@@ -12,7 +12,7 @@ export class CreateNewEventScreen extends React.Component {
         <Text>New Event</Text>
         <Button
           title={"Create a new event"}
-          onPress={() => {}}
+          onPress={() => {}} // TODO: This should insert new data into the database
         />
       </View>
     );
