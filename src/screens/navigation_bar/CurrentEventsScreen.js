@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Text, View} from 'react-native';
+import {Button, Text, View} from "react-native";
 
 /**
  * Current Events Screen
@@ -8,7 +8,7 @@ import {Button, Text, View} from 'react-native';
 export class CurrentEventsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text>Current Events</Text>
         <Button
           title={"Sample Single Event"}

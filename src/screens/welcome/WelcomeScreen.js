@@ -1,10 +1,14 @@
 import React from "react";
 import {Button,Text, View} from "react-native";
+import {inject} from "mobx-react";
+import {observable} from "mobx";
 
 /**
  * Welcome Screen
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
+// @inject("rootState")
+// @observable
 export class WelcomeScreen extends React.Component {
   render() {
     return (
