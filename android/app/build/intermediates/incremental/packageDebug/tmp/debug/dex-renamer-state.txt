@@ -1,4 +1,4 @@
-#Sun Nov 11 15:44:46 EST 2018
+#Sun Nov 11 20:19:25 EST 2018
 base.0=/home/dylan/Projects/DrinkUpProject/DrinkUp/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
