@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import ScannerV2 from "../components/ScannerV2";
+import ScannerV4 from "../components/ScannerV4";
 
 /**
  * Scanner Screen
@@ -9,8 +9,8 @@ import ScannerV2 from "../components/ScannerV2";
 export class ScannerScreen extends React.Component {
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ScannerV2/>
+      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+        <ScannerV4/>
       </View>
     );
   }
