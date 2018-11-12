@@ -3,31 +3,29 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions
+  Dimensions,
 } from "react-native";
 
 import { RNCamera } from "react-native-camera";
 
-export default class ScannerV2 extends Component {
+export default class ScannerV4 extends Component {
 
   constructor() {
     super();
     this.state = {
       scanning: true,
-      cameraType: RNCamera.Constants.Type.back,
       data: "no data"
     };
   }
 
   _handleBarCodeRead(e) {
-    console.log(e.type);
-    this.setState({scanning: false, data: e.type});
+    console.log(e.data);
+    this.setState({scanning: false, data: e.data});
   }
 
   getInitialState() {
     return {
-      scanning: true,
-      cameraType: RNCamera.Constants.Type.back
+      scanning: true
     };
   }
 
@@ -41,8 +39,8 @@ export default class ScannerV2 extends Component {
           <View style={styles.rectangleContainer}>
             <RNCamera
               style={styles.camera}
-              type={this.state.cameraType}
-              barCodeTypes = {[RNCamera.Constants.BarCodeType.pdf417]}
+              type={RNCamera.Constants.Type.back}
+              autoFocus={RNCamera.Constants.AutoFocus.on}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}>
               <View style={styles.rectangleContainer}>
                 <View style={styles.rectangle}/>
