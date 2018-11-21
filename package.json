@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint app",
-    "lintfix": "eslint --fix app"
+    "lint": "eslint src",
+    "lintfix": "eslint --fix src"
   },
   "dependencies": {
     "mobx": "^4.5.2",

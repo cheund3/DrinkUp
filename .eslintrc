@@ -11,10 +11,15 @@
     "react/prefer-stateless-function": "off",
     "semi": ["error", "always"],
     "indent": ["error", 2],
-    "quotes": [1, "single"]
+    "quotes": [1, "double"]
   },
   "env": {
     "jest": true,
     "node": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
   }
 }

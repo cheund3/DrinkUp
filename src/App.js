@@ -3,24 +3,24 @@
  * @author: Dylan L. Cheung
  */
 
-import React from 'react';
-import {RootState} from "./state/RootState";
+import React from "react";
+import {RootState} from "./RootState";
 import {Provider} from "mobx-react";
 import { RootStackNavigator } from "./navigators/RootStackNavigator";
 
 export default class App extends React.Component {
 
-  rootState;
+  state;
 
   constructor(props){
     super(props);
-    this.rootState = new RootState();
+    this.state = new RootState();
   }
 
   render() {
     return (
-      <Provider rootState={this.rootState}>
-          <RootStackNavigator/>
+      <Provider state={this.state}>
+        <RootStackNavigator/>
       </Provider>
     );
   }

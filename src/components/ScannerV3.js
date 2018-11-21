@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
-import Camera from 'react-native-camera';
+import React, { Component } from "react";
+import { View, Text, Button } from "react-native";
+import Camera from "react-native-camera";
 
 export default class ScannerScene extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class ScannerScene extends Component {
     if (scanResult.data != null) {
       if (!this.barcodeCodes.includes(scanResult.data)) {
         this.barcodeCodes.push(scanResult.data);
-        console.warn('onBarCodeRead call');
+        console.warn("onBarCodeRead call");
       }
     }
     return;
@@ -72,41 +72,41 @@ export default class ScannerScene extends Component {
       },
       preview: {
         flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'center'
+        justifyContent: "flex-end",
+        alignItems: "center"
       },
       overlay: {
-        position: 'absolute',
+        position: "absolute",
         padding: 16,
         right: 0,
         left: 0,
-        alignItems: 'center'
+        alignItems: "center"
       },
       topOverlay: {
         top: 0,
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
       },
       bottomOverlay: {
         bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.4)',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: "rgba(0,0,0,0.4)",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
       },
       enterBarcodeManualButton: {
         padding: 15,
-        backgroundColor: 'white',
+        backgroundColor: "white",
         borderRadius: 40
       },
       scanScreenMessage: {
         fontSize: 14,
-        color: 'white',
-        textAlign: 'center',
-        alignItems: 'center',
-        justifyContent: 'center'
+        color: "white",
+        textAlign: "center",
+        alignItems: "center",
+        justifyContent: "center"
       }
     };
   }

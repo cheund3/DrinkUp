@@ -1,11 +1,12 @@
-import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation';
+"use strict";
 
-import {UserProfileScreen} from "../screens/navigation_bar/UserProfileScreen";
+import React from "react";
+import { createBottomTabNavigator } from "react-navigation";
+
+import {UserProfileScreen} from "../views/navigation_bar/user_profile/UserProfileScreen";
 import {previousEventStack} from "./navigation_bar/PreviousEventsStack";
 import {currentEventsStack} from "./navigation_bar/CurrentEventsStack";
 import {createNewEventsStack} from "./navigation_bar/CreateNewEventStack";
-import {joinExistingEventStack} from "./navigation_bar/JoinExistingStack";
 
 /**
  * Bottom Navigation Bar
@@ -17,7 +18,6 @@ export default createBottomTabNavigator(
     "Previous Events": previousEventStack,
     "Current Events": currentEventsStack,
     "New Event": createNewEventsStack,
-    "Join an Event": joinExistingEventStack,
   },
   {
     initialRouteName: "Profile"

@@ -1,8 +1,8 @@
 "use strict";
 
 import {createStackNavigator} from "react-navigation";
-import {PreviousEventsScreen} from "../../screens/navigation_bar/PreviousEventsScreen";
-import {SingleEventScreen} from "../../screens/SingleEventScreen";
+import {PreviousEventsScreen} from "../../views/navigation_bar/previous_events/PreviousEventsScreen";
+import {SingleEventScreen} from "../../views/utilities/single_event/SingleEventScreen";
 
 /**
  * Previous Events Stack
@@ -12,7 +12,7 @@ export const previousEventStack = createStackNavigator(
   {
     PreviousEvents: {
       screen: PreviousEventsScreen,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: () => ({
         header: null
       })
     },

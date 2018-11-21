@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Nov 05 10:44:25 EST 2018
+#Mon Nov 19 18:29:26 EST 2018
 17.baseType=DIRECTORY
 4.path=lib/x86/libyoga.so
 25.base=/home/dylan/Projects/DrinkUpProject/DrinkUp/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

@@ -1,3 +1,5 @@
+"use strict";
+
 import { createStackNavigator } from "react-navigation";
 
 /**

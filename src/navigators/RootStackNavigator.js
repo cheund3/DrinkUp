@@ -1,7 +1,9 @@
+"use strict";
+
 import { createStackNavigator } from "react-navigation";
-import { SignInScreen } from "../screens/welcome/SignInScreen"
-import { SignUpScreen } from "../screens/welcome/SignUpScreen";
-import { WelcomeScreen } from "../screens/welcome/WelcomeScreen";
+import { SignInScreen } from "../views/welcome/sign_in/SignInScreen";
+import { SignUpScreen } from "../views/welcome/sign_up/SignUpScreen";
+import { WelcomeScreen } from "../views/welcome/welcome/WelcomeScreen";
 import BottomNavigationBar from "./BottomNavigationBar";
 
 /**
@@ -13,7 +15,7 @@ export const RootStackNavigator = createStackNavigator(
   {
     Welcome: {
       screen: WelcomeScreen,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: () => ({
         header: null
       })
     },
@@ -23,7 +25,7 @@ export const RootStackNavigator = createStackNavigator(
     SignUp: SignUpScreen,
     BottomNavigationBar: {
       screen: BottomNavigationBar,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: () => ({
         header: null
       })
     }
