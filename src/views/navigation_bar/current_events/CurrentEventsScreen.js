@@ -2,7 +2,10 @@
 
 import React from "react";
 import {Button, Text, View} from "react-native";
+<<<<<<< HEAD:src/views/navigation_bar/current_events/CurrentEventsScreen.js
 import {inject, observer} from "mobx-react";
+=======
+>>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a:src/screens/navigation_bar/CurrentEventsScreen.js
 
 /**
  * Current Events Screen

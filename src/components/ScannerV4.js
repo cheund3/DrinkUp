@@ -3,46 +3,29 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions
+  Dimensions,
 } from "react-native";
 
-<<<<<<< HEAD
-import Camera from "react-native-camera";
-=======
 import { RNCamera } from "react-native-camera";
->>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a
 
-export default class ScannerV2 extends Component {
+export default class ScannerV4 extends Component {
 
   constructor() {
     super();
     this.state = {
       scanning: true,
-      cameraType: RNCamera.Constants.Type.back,
       data: "no data"
     };
   }
 
   _handleBarCodeRead(e) {
-<<<<<<< HEAD
-    Vibration.vibrate();
-    this.setState({scanning: false});
-    Linking.openURL(e.data).catch(err => console.error("An error occured", err));
-    return;
-=======
-    console.log(e.type);
-    this.setState({scanning: false, data: e.type});
->>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a
+    console.log(e.data);
+    this.setState({scanning: false, data: e.data});
   }
 
   getInitialState() {
     return {
-      scanning: true,
-<<<<<<< HEAD
-      cameraType: Camera.constants.Type.back
-=======
-      cameraType: RNCamera.Constants.Type.back
->>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a
+      scanning: true
     };
   }
 
@@ -56,8 +39,8 @@ export default class ScannerV2 extends Component {
           <View style={styles.rectangleContainer}>
             <RNCamera
               style={styles.camera}
-              type={this.state.cameraType}
-              barCodeTypes = {[RNCamera.Constants.BarCodeType.pdf417]}
+              type={RNCamera.Constants.Type.back}
+              autoFocus={RNCamera.Constants.AutoFocus.on}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}>
               <View style={styles.rectangleContainer}>
                 <View style={styles.rectangle}/>
@@ -65,11 +48,7 @@ export default class ScannerV2 extends Component {
             </RNCamera>
           </View>
           <Text style={styles.instructions}>
-<<<<<<< HEAD
-            Double tap R on your keyboard to reload,{"\n"}
-=======
             Data: {this.state.data}
->>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a
           </Text>
         </View>
       );
@@ -80,11 +59,7 @@ export default class ScannerV2 extends Component {
           Barcode Scanner
         </Text>
         <Text style={styles.instructions}>
-<<<<<<< HEAD
-          Double tap R on your keyboard to reload,{"\n"}
-=======
           Data: {this.state.data}
->>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a
         </Text>
       </View>);
     }
@@ -103,11 +78,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
-<<<<<<< HEAD
-    height: Dimensions.get("window").width,
-=======
     height: Dimensions.get("window").height,
->>>>>>> 073415c6b55f796a724602ee6b8b1c54e6afb99a
     width: Dimensions.get("window").width,
   },
   welcome: {
