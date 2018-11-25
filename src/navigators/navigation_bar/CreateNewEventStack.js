@@ -1,7 +1,7 @@
 "use strict";
 
 import {createStackNavigator} from "react-navigation";
-import {CreateNewEventScreen} from "../../views/navigation_bar/create_new_event/CreateNewEventScreen";
+import {NewEventScreen} from "../../views/navigation_bar/new_event/NewEventScreen";
 import {SingleEventScreen} from "../../views/utilities/single_event/SingleEventScreen";
 
 /**
@@ -10,7 +10,7 @@ import {SingleEventScreen} from "../../views/utilities/single_event/SingleEventS
  */
 export const createNewEventsStack = createStackNavigator({
   CreateNewEvent: {
-    screen: CreateNewEventScreen,
+    screen: NewEventScreen,
     navigationOptions: () => ({
       header: null
     })
