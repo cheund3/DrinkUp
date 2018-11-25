@@ -9,6 +9,7 @@
     "lintfix": "eslint --fix src"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "mobx": "^4.5.2",
     "mobx-react": "^5.2.8",
     "mobx-state-tree": "^3.7.1",

@@ -18,10 +18,12 @@ export class WelcomeScreen extends React.Component {
         <View>
           <Button
             title={"Sign In"}
+            size={35}
             onPress={() => this.props.navigation.navigate("SignIn")}
           />
           <Button
             title={"Sign Up"}
+            size={35}
             onPress={() => this.props.navigation.navigate("SignUp")}
           />
         </View>

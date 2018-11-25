@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF",
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 100,
     textAlign: "center",
     margin: 10,
   },
