@@ -52,6 +52,7 @@ export class RootState {
     this.attendanceListState = new AttendanceListState();
     this.scannerState = new ScannerState();
     this.singleEventState = new SingleEventState();
+
   }
 
 }
