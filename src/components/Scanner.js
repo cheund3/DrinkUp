@@ -46,9 +46,12 @@ export class Scanner extends Component {
           Barcode Scanner
         </Text>
         <Text style={styles.instructions}>
-          Data: {this.props.state.scannerState.data}
+          Data: {JSON.stringify(this.props.state.scannerState.parsedData)}
         </Text>
-        <Button onPress={this.} > Entering User</Button>
+        <Button onPress={() => this.props.state.scannerState.enteringUser()} > Entering User</Button>
+        <Button onPress={() => this.props.state.scannerState.leavingUser()} > Leaving User</Button>
+        <Button onPress={() => this.props.state.scannerState.parseData()} > Parse Data</Button>
+
       </View>);
     }
   }
@@ -86,10 +89,10 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   rectangle: {
-    height: 380,
+    height: 299,
     width: 69,
     borderWidth: 2,
-    borderColor: "#122fff",
+    borderColor: "#ff13f5",
     backgroundColor: "transparent",
   },
 });
