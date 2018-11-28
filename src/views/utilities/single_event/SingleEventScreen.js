@@ -15,7 +15,7 @@ export class SingleEventScreen extends React.Component {
         <Text>Single Event</Text>
         <Button
           title={"Go to Scanner"}
-          onPress={() => {this.props.navigation.navigate("Scanner")}}
+          onPress={() => {this.props.navigation.navigate("Scanner");}}
         />
       </View>
     );

@@ -1,8 +1,9 @@
 "use strict";
 
 import { createStackNavigator } from "react-navigation";
-import {Scanner} from "../components/Scanner";
-import {SingleEventScreen} from "../views/utilities/single_event/SingleEventScreen";
+import { SingleEventScreen } from "../views/utilities/single_event/SingleEventScreen";
+import { ScannerScreen } from "../views/utilities/scanner/ScannerScreen";
+import {ScannedScreen} from "../views/utilities/scanned/ScannedScreen";
 
 /**
  * Single Event Stack Navigator
@@ -12,13 +13,19 @@ export default createStackNavigator(
   {
     SingleEventScreen: {
       screen: SingleEventScreen,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: () => ({
         header: null
       })
     },
     Scanner: {
-      screen: Scanner,
-      navigationOptions: ({navigation}) => ({
+      screen: ScannerScreen,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Scanned: {
+      screen: ScannedScreen,
+      navigationOptions: () => ({
         header: null
       })
     }

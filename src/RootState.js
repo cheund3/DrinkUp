@@ -11,6 +11,7 @@ import {PreviousEventsState} from "./views/navigation_bar/previous_events/Previo
 import {AttendanceListState} from "./views/utilities/attendance_list/AttendanceListState";
 import {ScannerState} from "./views/utilities/scanner/ScannerState";
 import {SingleEventState} from "./views/utilities/single_event/SingleEventState";
+import {ScannedState} from "./views/utilities/scanned/ScannedState";
 
 /**
  * Root State
@@ -35,6 +36,7 @@ export class RootState {
   // Utilities
   attendanceListState;
   scannerState;
+  scannedState;
   singleEventState;
 
   constructor() {
@@ -51,6 +53,7 @@ export class RootState {
 
     this.attendanceListState = new AttendanceListState();
     this.scannerState = new ScannerState();
+    this.scannedState = new ScannedState();
     this.singleEventState = new SingleEventState();
 
   }

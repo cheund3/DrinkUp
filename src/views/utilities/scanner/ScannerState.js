@@ -9,10 +9,9 @@ import {RNCamera} from "react-native-camera";
  */
 export class ScannerState {
 
+  @observable title = "Scanner";
   @observable data;
   @observable parsedData= "dummy data";
-  @observable scanning = true;
-  @observable leaving;
   @observable cameraType = RNCamera.Constants.Type.back;
 
   parseName(sequence){
@@ -55,13 +54,9 @@ export class ScannerState {
   }
 
   @action
-  enteringUser(){
-    this.leaving = false;
-  }
-
-  @action
-  leavingUser(){
-    this.leaving = true;
+  async handleBarcodeRead(e) {
+    this.data = e.data;
+    this.parseData();
   }
 
 }
