@@ -1,6 +1,8 @@
 import React from "react";
-import {Button, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
+import {basic} from "../../../styles/basic";
+import {Appbar} from "react-native-paper";
 
 /**
  * User Profile Screen
@@ -9,30 +11,21 @@ import {inject, observer} from "mobx-react";
 @inject("state")
 @observer
 export class UserProfileScreen extends React.Component {
+
+  componentDidMount(){
+    this.props.state.userProfileState.fetchProfile(this.props.state.userInterfaceState.internalId)
+  }
+
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text>Name: {this.props.state.userProfileState.name}</Text>
-          <Button
-            title="update"
-            onPress={() => this.props.state.userProfileState.updateName()}
+      <View style={basic.container}>
+        <Appbar.Header>
+          <Appbar.Content
+            title= {this.props.state.userProfileState.title}
           />
-          <Button
-            title="reset"
-            onPress={() => this.props.state.userProfileState.resetName()}
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text>Counter: {this.props.state.userProfileState.counter}</Text>
-          <Button
-            title="Increment"
-            onPress={() => this.props.state.userProfileState.increase()}
-          />
-          <Button
-            title="Decrement"
-            onPress={() => this.props.state.userProfileState.decrease()}
-          />
+        </Appbar.Header>
+        <View style={basic.content}>
+          <Text> {this.props.state.userProfileState.profile}</Text>
         </View>
       </View>
     );

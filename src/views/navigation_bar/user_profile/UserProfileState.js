@@ -1,6 +1,7 @@
 "use strict";
 
 import {action, observable} from "mobx";
+const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/:";
 
 /**
  * User Profile State
@@ -8,26 +9,17 @@ import {action, observable} from "mobx";
  */
 export class UserProfileState {
 
-  @observable counter = 0;
-  @observable name = "user";
+  @observable title = "Profile";
+  @observable profile = "empty";
 
   @action
-  increase() {
-    this.counter += 1;
-  }
-
-  @action
-  decrease() {
-    this.counter -= 1;
-  }
-
-  @action
-  updateName() {
-    this.name = "new name";
-  }
-
-  @action
-  resetName() {
-    this.name = "user";
+  fetchProfile(internalId){
+    fetch(URL+internalId, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      }
+    }).then(response => response.json());
   }
 }

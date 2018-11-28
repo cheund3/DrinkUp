@@ -4,7 +4,7 @@ import {styles} from "../sign_in/SignInStyle";
 import React from "react";
 import {Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
-import {Appbar, TextInput, Button} from "react-native-paper";
+import {Appbar, TextInput, Button, HelperText} from "react-native-paper";
 import {Formik} from "formik";
 
 /**

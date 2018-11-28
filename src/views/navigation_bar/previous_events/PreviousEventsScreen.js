@@ -3,6 +3,8 @@
 import React from "react";
 import {Button, Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
+import {basic} from "../../../styles/basic";
+import {Appbar} from "react-native-paper";
 
 /**
  * Previous Event Screen
@@ -11,18 +13,29 @@ import {inject, observer} from "mobx-react";
 @inject("state")
 @observer
 export class PreviousEventsScreen extends React.Component {
+
+  // componentDidMount(){
+  //   this.props.state.previousEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
+  // }
+
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>
-          This must be a list of previous event names. If there are no events, a message should be displayed.
-          Clicking on one of the events in the list should allow a user to see more data, however they should
-          not be allowed to update any data on the event (unlike how current events works).
-        </Text>
-        <Button
-          title={"Sample Single Event"}
-          onPress={() => this.props.navigation.navigate("SingleEventScreen")}
-        />
+      <View style={basic.container}>
+        <Appbar.Header>
+          <Appbar.Content
+            title= {this.props.state.previousEventsState.title}
+          />
+        </Appbar.Header>
+        <Text> {this.props.state.previousEventsState.events}</Text>
+
+        <View style={basic.content}>
+          <Button
+            style={basic.button}
+            mode = "contained"
+            title={"Single Event"}
+            onPress={() => this.props.navigation.navigate("SingleEventScreen")}
+          />
+        </View>
       </View>
     );
   }

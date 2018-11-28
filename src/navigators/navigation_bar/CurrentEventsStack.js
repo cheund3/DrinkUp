@@ -16,10 +16,7 @@ export const currentEventsStack = createStackNavigator({
     })
   },
   SingleEventScreen: {
-    screen: SingleEventStackNavigator,
-    navigationOptions: () => ({
-      header: null
-    })
+    screen: SingleEventStackNavigator
   }
 },
 {

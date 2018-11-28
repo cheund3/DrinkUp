@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     height: 299,
     width: 69,
     borderWidth: 2,
-    borderColor: "#ff13f5",
+    borderColor: "#8400EE",
     backgroundColor: "transparent",
   }
 });
