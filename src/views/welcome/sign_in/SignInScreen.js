@@ -45,6 +45,7 @@ export class SignInScreen extends React.Component {
                   value={values.password}
                   label="Password"
                   placeholder=""
+                  secureTextEntry={true}
                 />
                 <Button onPress={handleSubmit} style={styles.button} mode="contained">Submit</Button>
               </View>

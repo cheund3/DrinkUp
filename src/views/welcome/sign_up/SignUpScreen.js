@@ -58,12 +58,14 @@ export class SignUpScreen extends React.Component {
                   value={values.password}
                   label="Password"
                   placeholder=""
+                  secureTextEntry={true}
                 />
                 <TextInput style={styles.textInput}
                   onChangeText={handleChange("confirmPassword")}
                   value={values.confirmPassword}
                   label="Confirm Password"
                   placeholder=""
+                  secureTextEntry={true}
                 />
                 <Button onPress={handleSubmit} style={styles.button} mode="contained">Submit</Button>
               </View>
