@@ -26,7 +26,7 @@ export class SignUpState {
   doSomething(){}
 
   @action
-  async handleCreate(values){
+  async handleSubmit(values){
     await fetch(URL, {
       method: "POST",
       headers: {

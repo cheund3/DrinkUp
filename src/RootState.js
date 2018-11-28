@@ -5,7 +5,7 @@ import {UserProfileState} from "./views/navigation_bar/user_profile/UserProfileS
 import {UserInterfaceState} from "./UserInterfaceState";
 import {WelcomeState} from "./views/welcome/welcome/WelcomeState";
 import {SignInState} from "./views/welcome/sign_in/SignInState";
-import {CreateNewEventState} from "./views/navigation_bar/create_new_event/CreateNewEventState";
+import {NewEventState} from "./views/navigation_bar/new_event/NewEventState";
 import {CurrentEventState} from "./views/navigation_bar/current_events/CurrentEventState";
 import {PreviousEventsState} from "./views/navigation_bar/previous_events/PreviousEventsState";
 import {AttendanceListState} from "./views/utilities/attendance_list/AttendanceListState";
@@ -27,7 +27,7 @@ export class RootState {
   welcomeState;
 
   // Navigation Bar
-  createNewEventState;
+  newEventState;
   currentEventsState;
   previousEventsState;
   userProfileState;
@@ -44,7 +44,7 @@ export class RootState {
     this.signUpState = new SignUpState();
     this.welcomeState = new WelcomeState();
 
-    this.createNewEventState = new CreateNewEventState();
+    this.newEventState = new NewEventState();
     this.currentEventsState = new CurrentEventState();
     this.previousEventsState = new PreviousEventsState();
     this.userProfileState = new UserProfileState();

@@ -9,17 +9,17 @@
     "lintfix": "eslint --fix src"
   },
   "dependencies": {
-    "crypto": "^1.0.1",
+    "formik": "^1.3.2",
     "mobx": "^4.5.2",
     "mobx-react": "^5.2.8",
     "mobx-state-tree": "^3.7.1",
     "react": "16.5.0",
-    "react-native": "0.57.1",
+    "react-native": "^0.57.1",
     "react-native-camera": "^1.3.1",
     "react-native-form": "^2.1.3",
-    "react-navigation": "^2.18.2",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "react-native-paper": "^2.2.8",
+    "react-native-vector-icons": "^6.1.0",
+    "react-navigation": "^2.18.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -43,5 +43,10 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     }
+  },
+  "rnpm": {
+    "assets": [
+      "src/assets/fonts"
+    ]
   }
 }

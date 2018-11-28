@@ -9,8 +9,27 @@ import {action, observable} from "mobx";
 export class SignInState {
   @observable user = {};
 
+  @observable initValues = {
+    email: "",
+    password: "",
+  };
+
   @action
-  updateUser(data) {
-    this.user = data;
+  doSomething(){}
+
+  @action
+  async handleSubmit(values){
+    await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: JSON.stringify({
+        email: values.email,
+        password: values.password
+      })
+    }).then(response => response.json());
+    // await this.resetInitialValues();
   }
 }
