@@ -1,8 +1,11 @@
 "use strict";
 
-import React from "react";
-import {Button,Text, View} from "react-native";
+import {styles} from "./WelcomeStyle";
+import React, {Component} from "react";
+import {Text, View, Image} from "react-native";
 import {inject, observer} from "mobx-react";
+import {Formik} from "formik";
+import {Button, TextInput, Appbar} from "react-native-paper";
 
 /**
  * welcome Screen
@@ -14,16 +17,18 @@ export class WelcomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Image style={styles.image}
+          source={require("../../../assets/img/drinkupIcon.png")}
+        />
         <Text>Welcome Screen</Text>
         <View>
-          <Button
-            title={"Sign In"}
+          <Button style={styles.button} mode="contained"
             onPress={() => this.props.navigation.navigate("SignIn")}
-          />
-          <Button
-            title={"Sign Up"}
+          ><Text style={{fontSize: 40}}>Sign In</Text></Button>
+          <Button style={styles.button} mode="contained"
             onPress={() => this.props.navigation.navigate("SignUp")}
-          />
+          ><Text style={{fontSize: 40}}>Sign Up</Text></Button>
+          <Text style={{textAlign: "center", bottom: -30}}>Please drink responsibly!</Text>
         </View>
       </View>
     );
