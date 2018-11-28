@@ -2,7 +2,7 @@
 
 import {createStackNavigator} from "react-navigation";
 import {CurrentEventsScreen} from "../../views/navigation_bar/current_events/CurrentEventsScreen";
-import {SingleEventScreen} from "../../views/utilities/single_event/SingleEventScreen";
+import SingleEventStackNavigator from "../SingleEventStackNavigator";
 
 /**
  * Current Events Stack
@@ -15,7 +15,12 @@ export const currentEventsStack = createStackNavigator({
       header: null
     })
   },
-  SingleEventScreen: SingleEventScreen
+  SingleEventScreen: {
+    screen: SingleEventStackNavigator,
+    navigationOptions: () => ({
+      header: null
+    })
+  }
 },
 {
   initialRouteName: "CurrentEvents"

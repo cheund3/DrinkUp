@@ -1,8 +1,8 @@
 "use strict";
 
-import {action, observable} from "mobx";
-
-const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events"; // use caps for global constants
+import {action, observable} from "mobx"
+import {Keyboard} from "react-native";
+const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events";
 
 /**
  * Create New Event State
@@ -12,6 +12,7 @@ export class NewEventState {
 
   @observable title = "New Event";
   @observable initialValues = { eventName: "", description: "" };
+  @observable internalId = 1;
 
   async resetInitialValues(){
     this.initialValues.eventName = "";
@@ -19,19 +20,21 @@ export class NewEventState {
   }
 
   @action
-  async handleCreate(values){
+  async handleCreate(values, internalId){
+    Keyboard.dismiss();
     await fetch(URL, {
       method: "POST",
       headers: {
         "Accept": "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: values.eventName,
         description: values.description,
+        owner: internalId
       })
     }).then(response => response.json());
-    // await this.resetInitialValues();
+    await this.resetInitialValues();
   }
 
 }
