@@ -1,8 +1,7 @@
 "use strict";
 
-import {action, observable} from "mobx";
+import {action, observable} from "mobx"
 import {Keyboard} from "react-native";
-
 const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events";
 
 /**
