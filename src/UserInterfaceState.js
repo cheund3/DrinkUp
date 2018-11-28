@@ -4,11 +4,7 @@ import {action, observable} from "mobx";
 
 export class UserInterfaceState {
 
-  @observable isLoading = false;
+  @observable internalId = 8675309;
 
-  @action
-  updateIsLoading(bool){
-    this.isLoading = bool;
-  }
 
 }

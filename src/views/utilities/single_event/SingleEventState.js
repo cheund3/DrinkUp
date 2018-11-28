@@ -8,7 +8,7 @@ import {action, observable} from "mobx";
  */
 export class SingleEventState {
 
-  @observable data = {};
+  @observable title = "Sample Event Name";
 
   @action
   doSomething(){}

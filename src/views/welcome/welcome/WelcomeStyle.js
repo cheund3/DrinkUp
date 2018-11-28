@@ -7,7 +7,7 @@ import {StyleSheet} from "react-native";
  * @author Jeffrey Poegel <poegej@rpi.edu>
  */
 
-export const styles = StyleSheet.create({
+export const welcome = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f1",
@@ -31,5 +31,18 @@ export const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 250,
+  },
+  title_container : {
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  content_container : {
+    flex:2,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  title: {
+    fontSize: 69
   }
 });

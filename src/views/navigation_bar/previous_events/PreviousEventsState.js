@@ -1,6 +1,8 @@
 "use strict";
 
 import {action, observable} from "mobx";
+const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users";
+
 
 /**
  * Previous Event State
@@ -8,9 +10,21 @@ import {action, observable} from "mobx";
  */
 export class PreviousEventsState {
 
-  @observable data = {};
+  @observable title = "Previous Events";
+  @observable events= "no events";
 
   @action
-  doSomething(){}
+  fetchEvents(internalId){
+    fetch(URL, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: internalId
+      })
+    }).then(response => response.json());
+  }
 
 }
