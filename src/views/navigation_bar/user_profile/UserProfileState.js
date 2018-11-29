@@ -82,6 +82,7 @@ export class UserProfileState {
         let responseJson = await response.json();
         console.log(responseJson);
         this.profile = values;
+        // this.profile.firstName = "Bitch";
       }
     } catch (error) {
       console.log(error);

@@ -68,7 +68,10 @@ export class UserProfileScreen extends React.Component {
                   placeholder=""
                   secureTextEntry={true}
                 />
-                <Button onPress={handleSubmit} style={styles.button} mode="contained">Update</Button>
+                <Button onPress={async () => {
+                  await handleSubmit(values);
+                  this.forceUpdate();
+                }} style={styles.button} mode="contained">Update</Button>
               </View>
             )}
           </Formik>
