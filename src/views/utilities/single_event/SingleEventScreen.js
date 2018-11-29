@@ -28,6 +28,12 @@ export class SingleEventScreen extends React.Component {
             title={"Scanner"}
             onPress={() => this.props.navigation.navigate("Scanner")}
           />
+          <Button
+            style={basic.button}
+            mode = "contained"
+            title={"Attendance List"}
+            onPress={() => this.props.navigation.navigate("Attendance")}
+          />
         </View>
       </View>
     );
