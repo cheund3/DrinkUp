@@ -13,7 +13,7 @@ import {Appbar} from "react-native-paper";
 export class UserProfileScreen extends React.Component {
 
   componentDidMount(){
-    this.props.state.userProfileState.fetchProfile(this.props.state.userInterfaceState.internalId)
+    // this.props.state.userProfileState.fetchProfile(this.props.state.userInterfaceState.internalId);
   }
 
   render() {

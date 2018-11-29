@@ -12,14 +12,15 @@ export class UserProfileState {
   @observable title = "Profile";
   @observable profile = "empty";
 
-  @action
-  fetchProfile(internalId){
-    fetch(URL+internalId, {
-      method: "GET",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      }
-    }).then(response => response.json());
-  }
+
+  // @action
+  // fetchProfile(internalId){
+  //   fetch(URL+internalId, {
+  //     method: "GET",
+  //     headers: {
+  //       "Accept": "application/json",
+  //       "Content-Type": "application/json",
+  //     }
+  //   }).then(response => response.json());
+  // }
 }
