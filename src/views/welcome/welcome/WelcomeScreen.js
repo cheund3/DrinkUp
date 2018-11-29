@@ -18,7 +18,7 @@ export class WelcomeScreen extends Component {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         {/*<Image style={styles.image}*/}
-          {/*source={require("../../../assets/img/drinkupIcon.png")}*/}
+        {/*source={require("../../../assets/img/drinkupIcon.png")}*/}
         {/*/>*/}
         <View style={welcome.title_container}>
           <Text style={welcome.title}> Drink Up </Text>

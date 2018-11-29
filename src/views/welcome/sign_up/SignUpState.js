@@ -13,6 +13,8 @@ export class SignUpState {
 
   @observable data = {};
 
+  @observable user = null;
+
   @observable initValues = {
     "firstName": "",
     "lastName": "",
@@ -21,14 +23,16 @@ export class SignUpState {
     "confirmPassword": ""
   };
 
+  @observable error = "";
+
   @action
   doSomething(){}
 
   @action
   async handleSubmit(values){
-    console.log("------Initial Values--------");
-    console.log(values);
-    console.log("----------------------------");
+    // console.log("------Initial Values--------");
+    // console.log(values);
+    // console.log("----------------------------");
 
     const request = {
       method: "POST",
@@ -47,10 +51,20 @@ export class SignUpState {
     try {
       let response = await fetch(URL, request);
       console.log(response);
-      let responseJson = await response.json();
-      console.log(responseJson);
+      if(response.status === 201) {
+        let responseJson = await response.json();
+        console.log(responseJson);
+        this.user = responseJson;
+        this.error = "";
+        return responseJson.id;
+      } else {
+        this.error = "Invalid sign up";
+        return -1;
+      }
     } catch (error) {
       console.error(error);
+      this.error = "Invalid sign up";
+      return -1;
     }
   }
 }
