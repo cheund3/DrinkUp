@@ -13,18 +13,18 @@ export class PreviousEventsState {
   @observable title = "Previous Events";
   @observable events= "no events";
 
-  @action
-  fetchEvents(internalId){
-    fetch(URL, {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: internalId
-      })
-    }).then(response => response.json());
-  }
+  // @action
+  // fetchEvents(internalId){
+  //   fetch(URL, {
+  //     method: "POST",
+  //     headers: {
+  //       "Accept": "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       id: internalId
+  //     })
+  //   }).then(response => response.json());
+  // }
 
 }
