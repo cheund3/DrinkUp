@@ -1,6 +1,7 @@
 "use strict";
 
 import {action, observable} from "mobx";
+
 const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users";
 
 
@@ -11,20 +12,31 @@ const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/
 export class PreviousEventsState {
 
   @observable title = "Previous Events";
-  @observable events= "no events";
+  @observable data = {
+    events: []
+  };
 
-  // @action
-  // fetchEvents(internalId){
-  //   fetch(URL, {
-  //     method: "POST",
-  //     headers: {
-  //       "Accept": "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       id: internalId
-  //     })
-  //   }).then(response => response.json());
-  // }
+  @action
+  async fetchEvents(internalId) {
+    try {
+      let response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          owner: internalId,
+          completed: true
+        })
+      });
+      console.log(response);
+      let responseJson = await response.json();
+      this.data.events = responseJson;
+      console.log(responseJson);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 }

@@ -1,10 +1,10 @@
 "use strict";
 
 import React from "react";
-import {Button, Text, View} from "react-native";
+import {ScrollView,Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 import {basic} from "../../../styles/basic";
-import {Appbar} from "react-native-paper";
+import {Appbar, List} from "react-native-paper";
 
 /**
  * Current Events Screen
@@ -14,11 +14,20 @@ import {Appbar} from "react-native-paper";
 @observer
 export class CurrentEventsScreen extends React.Component {
 
-  // componentDidMount(){
-  //   this.props.state.currentEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
-  // }
+  async componentDidMount() {
+    await this.props.state.currentEventsState.fetchEvents(8675309);
+  }
 
   render() {
+    const currentEventsViews = [];
+    this.props.state.currentEventsState.data.events.forEach(function (event) {
+      currentEventsViews.push(
+        <List.Item
+          title={event.name}
+          description={event.description}
+        />
+      );
+    });
     return (
       <View style={basic.container}>
         <Appbar.Header>
@@ -26,15 +35,11 @@ export class CurrentEventsScreen extends React.Component {
             title= {this.props.state.currentEventsState.title}
           />
         </Appbar.Header>
-        <Text> {this.props.state.currentEventsState.events} </Text>
-        <View style={basic.content}>
-          <Button
-            style={basic.button}
-            mode = "contained"
-            title={"Single Event"}
-            onPress={() => this.props.navigation.navigate("SingleEventScreen")}
-          />
-        </View>
+        <ScrollView>
+          <List.Section>
+            {currentEventsViews}
+          </List.Section>
+        </ScrollView>
       </View>
     );
   }

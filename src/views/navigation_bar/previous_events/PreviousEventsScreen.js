@@ -1,10 +1,10 @@
 "use strict";
 
 import React from "react";
-import {Button, Text, View} from "react-native";
+import { ScrollView, Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 import {basic} from "../../../styles/basic";
-import {Appbar} from "react-native-paper";
+import {Appbar, List} from "react-native-paper";
 
 /**
  * Previous Event Screen
@@ -14,11 +14,20 @@ import {Appbar} from "react-native-paper";
 @observer
 export class PreviousEventsScreen extends React.Component {
 
-  // componentDidMount(){
-  //   this.props.state.previousEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
-  // }
+  async componentDidMount() {
+    await this.props.state.previousEventsState.fetchEvents(8675309);
+  }
 
   render() {
+    const previousEventsState = [];
+    this.props.state.previousEventsState.data.events.forEach(function (event) {
+      previousEventsState.push(
+        <List.Item
+          title={event.name}
+          description={event.description}
+        />
+      );
+    });
     return (
       <View style={basic.container}>
         <Appbar.Header>
@@ -26,16 +35,11 @@ export class PreviousEventsScreen extends React.Component {
             title= {this.props.state.previousEventsState.title}
           />
         </Appbar.Header>
-        <Text> {this.props.state.previousEventsState.events}</Text>
-
-        <View style={basic.content}>
-          <Button
-            style={basic.button}
-            mode = "contained"
-            title={"Single Event"}
-            onPress={() => this.props.navigation.navigate("SingleEventScreen")}
-          />
-        </View>
+        <ScrollView>
+          <List.Section>
+            {previousEventsState}
+          </List.Section>
+        </ScrollView>
       </View>
     );
   }

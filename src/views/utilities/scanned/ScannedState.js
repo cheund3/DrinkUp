@@ -2,7 +2,8 @@
 
 import {action, observable} from "mobx";
 
-const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/";
+const ADD_USER_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/";
+const UPDATE_LEFT_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/left/"
 
 /**
  * Scanned State
@@ -11,12 +12,18 @@ const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/
 export class ScannedState {
 
   @observable title = "Scanned";
-  @observable data;
+  @observable data = {
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    dob: "",
+    licenseNumber: ""
+  };
   @observable res = "res";
 
   @action
   async enteringUser(data){
-    await fetch(URL, {
+    await fetch(ADD_USER_URL, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -28,7 +35,6 @@ export class ScannedState {
         lastName: data.lastName,
         dob: data.dateOfBirth,
         licenseNumber: data.licenseNumber,
-        left: false
       })
     }).then(response => {
       response.json();
@@ -38,20 +44,15 @@ export class ScannedState {
   }
 
   @action
-  async leavingUser(data){
-    await fetch(URL, {
+  async updateLeft(){
+    await fetch(UPDATE_LEFT_URL, {
       method: "POST",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        firstName: data.firstName,
-        middleName: data.middleName,
-        lastName: data.lastName,
-        dob: data.dateOfBirth,
-        licenseNumber: data.licenseNumber,
-        left: true
+        licenseNumber: this.data.licenseNumber
       })
     }).then(response => {
       response.json();

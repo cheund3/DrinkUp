@@ -12,8 +12,12 @@ import {List} from "react-native-paper";
 @inject("state")
 @observer
 export class AttendanceListScreen extends React.Component {
+
+  async componentDidMount() {
+    await this.props.state.attendanceListState.fetchAttendees();
+  }
+
   render() {
-    this.props.state.attendanceListState.fetchAttendees();
     const attendeesViews = [];
     this.props.state.attendanceListState.data.attendees.forEach(function (attendee) {
       attendeesViews.push(
@@ -28,10 +32,6 @@ export class AttendanceListScreen extends React.Component {
       <ScrollView>
         <List.Section title="Attendance List">
           {attendeesViews}
-          <List.Item
-            title="John Doe - 21"
-            description="NHL18198501"
-          />
         </List.Section>
       </ScrollView>
     );
