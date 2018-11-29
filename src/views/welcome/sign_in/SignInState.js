@@ -2,7 +2,7 @@
 
 import {action, observable} from "mobx";
 
-const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users";
+const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users/signin";
 
 /**
  * Sign In State
@@ -27,7 +27,7 @@ export class SignInState {
         method: "POST",
         headers: {
           "Accept": "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: values.email,
@@ -37,6 +37,7 @@ export class SignInState {
       console.log(response);
       let responseJson = await response.json();
       console.log(responseJson);
+      this.user = responseJson;
     } catch (error) {
       console.log(error);
     }

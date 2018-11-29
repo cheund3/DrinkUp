@@ -13,7 +13,7 @@ import {Appbar} from "react-native-paper";
 export class UserProfileScreen extends React.Component {
 
   componentDidMount(){
-    // this.props.state.userProfileState.fetchProfile(this.props.state.userInterfaceState.internalId);
+    this.props.state.userProfileState.fetchProfile(this.props.state.signInState.user.id);
   }
 
   render() {
@@ -25,7 +25,10 @@ export class UserProfileScreen extends React.Component {
           />
         </Appbar.Header>
         <View style={basic.content}>
-          <Text> {this.props.state.userProfileState.profile}</Text>
+          <Text>{this.props.state.userProfileState.profile.firstName}</Text>
+          <Text>{this.props.state.userProfileState.profile.lastName}</Text>
+          <Text>{this.props.state.userProfileState.profile.email}</Text>
+          <Text>{this.props.state.userProfileState.profile.password}</Text>
         </View>
       </View>
     );
