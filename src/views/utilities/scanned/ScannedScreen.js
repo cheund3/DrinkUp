@@ -19,8 +19,11 @@ export class ScannedScreen extends Component {
         <Text style={basic.content}>
           Data: {JSON.stringify(this.props.state.scannerState.parsedData)}
         </Text>
-        <Button onPress={() => {this.props.state.scannedState.enteringUser();}}> Entering User</Button>
-        <Button onPress={() => {this.props.state.scannedState.leavingUser();}}> Leaving User</Button>
+        <Text style={basic.content}>
+          Response: {this.props.state.scannedState.res}
+        </Text>
+        <Button onPress={() => {this.props.state.scannedState.enteringUser(JSON.parse(JSON.stringify(this.props.state.scannerState.parsedData)));}}> Entering User</Button>
+        <Button onPress={() => {this.props.state.scannedState.leavingUser(JSON.parse(JSON.stringify(this.props.state.scannerState.parsedData)));}}> Leaving User</Button>
       </View>
     );
   }

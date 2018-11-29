@@ -12,7 +12,7 @@ export class NewEventState {
 
   @observable title = "New Event";
   @observable initialValues = { eventName: "", description: "" };
-  @observable internalId = 1;
+  @observable internalId = 8675309;
 
   async resetInitialValues(){
     this.initialValues.eventName = "";
@@ -20,7 +20,7 @@ export class NewEventState {
   }
 
   @action
-  async handleCreate(values, internalId){
+  async handleCreate(values){
     Keyboard.dismiss();
     await fetch(URL, {
       method: "POST",
@@ -31,9 +31,13 @@ export class NewEventState {
       body: JSON.stringify({
         name: values.eventName,
         description: values.description,
-        owner: internalId
+        owner: this.internalId
       })
-    }).then(response => response.json());
+    }).then(response => {
+      response.json();
+    }).catch( (error) => {
+      error;
+    });
     await this.resetInitialValues();
   }
 
