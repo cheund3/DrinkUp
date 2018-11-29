@@ -2,7 +2,9 @@ import React from "react";
 import {Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 import {basic} from "../../../styles/basic";
-import {Appbar} from "react-native-paper";
+import {Formik} from "formik";
+import {Appbar, Button, TextInput} from "react-native-paper";
+import {styles} from "./UserProfileStyle";
 
 /**
  * User Profile Screen
@@ -12,8 +14,9 @@ import {Appbar} from "react-native-paper";
 @observer
 export class UserProfileScreen extends React.Component {
 
-  componentDidMount(){
-    this.props.state.userProfileState.fetchProfile(this.props.state.signInState.user.id);
+  async componentDidMount() {
+    this.props.state.userProfileState.user = this.props.state.userInterfaceState.internalId;
+    await this.props.state.userProfileState.fetchProfile();
   }
 
   render() {
@@ -21,17 +24,60 @@ export class UserProfileScreen extends React.Component {
       <View style={basic.container}>
         <Appbar.Header>
           <Appbar.Content
-            title= {this.props.state.userProfileState.title}
+            title={this.props.state.userProfileState.title}
           />
         </Appbar.Header>
         <View style={basic.content}>
-          <Text>{this.props.state.userProfileState.profile.firstName}</Text>
-          <Text>{this.props.state.userProfileState.profile.lastName}</Text>
-          <Text>{this.props.state.userProfileState.profile.email}</Text>
-          <Text>{this.props.state.userProfileState.profile.password}</Text>
+          <Formik
+            initValues={this.props.state.userProfileState.profile}
+            onSubmit={async (values) => {
+              await this.props.state.userProfileState.handleSubmit(values);
+            }
+            }>
+            {({handleChange, handleSubmit, values}) => (
+              <View style={styles.content}>
+                <TextInput style={styles.textInput}
+                  onChangeText={handleChange("firstName")}
+                  value={values.firstName}
+                  label={this.props.state.userProfileState.profile.firstName}
+                  placeholder=""
+                />
+                <TextInput style={styles.textInput}
+                  onChangeText={handleChange("lastName")}
+                  value={values.lastName}
+                  label={this.props.state.userProfileState.profile.lastName}
+                  placeholder=""
+                />
+                <TextInput style={styles.textInput}
+                  onChangeText={handleChange("email")}
+                  value={values.email}
+                  label={this.props.state.userProfileState.profile.email}
+                  placeholder=""
+                />
+                <TextInput style={styles.textInput}
+                  onChangeText={handleChange("password")}
+                  value={values.password}
+                  label="Password"
+                  placeholder=""
+                  secureTextEntry={true}
+                />
+                <TextInput style={styles.textInput}
+                  onChangeText={handleChange("confirmPassword")}
+                  value={""}
+                  label="Confirm Password"
+                  placeholder=""
+                  secureTextEntry={true}
+                />
+                <Button onPress={async () => {
+                  await handleSubmit(values);
+                  this.forceUpdate();
+                }} style={styles.button} mode="contained">Update</Button>
+              </View>
+            )}
+          </Formik>
+          <Button onPress={() => this.props.navigation.navigate("Welcome")} style={styles.button} mode="contained">Log out</Button>
         </View>
       </View>
     );
   }
 }
-

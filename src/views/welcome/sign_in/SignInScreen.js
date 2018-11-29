@@ -26,10 +26,13 @@ export class SignInScreen extends React.Component {
           <Formik
             initValues={this.props.state.signInState.initValues}
             onSubmit={async (values) => {
-              await this.props.state.signInState.handleSubmit(values);
+              let user = await this.props.state.signInState.handleSubmit(values);
 
               // Keyboard.dismiss();
-              this.props.navigation.navigate("Profile");
+              this.props.state.userInterfaceState.internalId = user;
+              if (user !== -1) {
+                this.props.navigation.navigate("Profile");
+              }
             }
             }>
             {({handleChange, handleSubmit, values}) => (
@@ -47,6 +50,7 @@ export class SignInScreen extends React.Component {
                   placeholder=""
                   secureTextEntry={true}
                 />
+                <Text style={{color: "red"}}>{this.props.state.signInState.error}</Text>
                 <Button onPress={handleSubmit} style={styles.button} mode="contained">Submit</Button>
               </View>
             )}
