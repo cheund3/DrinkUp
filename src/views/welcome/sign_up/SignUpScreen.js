@@ -17,11 +17,11 @@ export class SignUpScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Appbar.Header>
-          <Appbar.Content
-            title= {"Sign Up"}
-          />
-        </Appbar.Header>
+        {/*<Appbar.Header>*/}
+          {/*<Appbar.Content*/}
+            {/*title= {"Sign Up"}*/}
+          {/*/>*/}
+        {/*</Appbar.Header>*/}
         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
           <Formik
             initValues={this.props.state.signUpState.initValues}
@@ -71,7 +71,7 @@ export class SignUpScreen extends React.Component {
                   secureTextEntry={true}
                 />
                 <Text style={{color: "red"}}>{this.props.state.signUpState.error}</Text>
-                <Button onPress={handleSubmit} style={styles.button} mode="contained">Submit</Button>
+                <Button onPress={handleSubmit} style={styles.button} mode="contained">Sign Up</Button>
               </View>
             )}
           </Formik>

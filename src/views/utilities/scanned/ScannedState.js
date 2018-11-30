@@ -22,7 +22,8 @@ export class ScannedState {
   @observable res = "res";
 
   @action
-  async enteringUser(data){
+  async enteringUser(data, eventId){
+    console.log("EVENT ID: " + data.dateOfBirth.substring(4, 6) + "-" + data.dateOfBirth.substring(6, 8)  + "-" + data.dateOfBirth.substring(0, 4));
     await fetch(ADD_USER_URL, {
       method: "POST",
       headers: {
@@ -33,11 +34,12 @@ export class ScannedState {
         firstName: data.firstName,
         middleName: data.middleName,
         lastName: data.lastName,
-        dob: data.dateOfBirth,
+        dob: data.dateOfBirth.substring(4, 6) + "-" + data.dateOfBirth.substring(6, 8)  + "-" + data.dateOfBirth.substring(0, 4),
         licenseNumber: data.licenseNumber,
+        eventId: eventId
       })
     }).then(response => {
-      response.json();
+      console.log(response.json());
     }).catch( (error) => {
       error;
     });

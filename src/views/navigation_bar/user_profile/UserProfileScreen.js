@@ -35,7 +35,7 @@ export class UserProfileScreen extends React.Component {
             }
             }>
             {({handleChange, handleSubmit, values}) => (
-              <View style={styles.content}>
+              <View style={basic.content}>
                 <TextInput style={styles.textInput}
                   onChangeText={handleChange("firstName")}
                   value={values.firstName}

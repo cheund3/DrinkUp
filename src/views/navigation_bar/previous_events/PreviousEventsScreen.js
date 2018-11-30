@@ -15,19 +15,28 @@ import {Appbar, List} from "react-native-paper";
 export class PreviousEventsScreen extends React.Component {
 
   async componentDidMount() {
-    await this.props.state.previousEventsState.fetchEvents(8675309);
+    console.log(this.props.state.userInterfaceState.internalId);
+    await this.props.state.previousEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
+  }
+
+  _handleButtonPress(id){
+    this.props.state.previousEventsState.selectedEventId = id;
+    this.props.navigation.navigate("SingleEventScreen");
   }
 
   render() {
-    const previousEventsState = [];
-    this.props.state.previousEventsState.data.events.forEach(function (event) {
-      previousEventsState.push(
+    const previousEventsViews = [];
+    const events = this.props.state.previousEventsState.data.events;
+    for(let i = 0; i< events.length; i++){
+      previousEventsViews.push(
         <List.Item
-          title={event.name}
-          description={event.description}
+          key={events[i].id}
+          title={events[i].name}
+          description={events[i].description}
+          onPress={() => {this._handleButtonPress(events[i].id);}}
         />
       );
-    });
+    }
     return (
       <View style={basic.container}>
         <Appbar.Header>
@@ -37,7 +46,7 @@ export class PreviousEventsScreen extends React.Component {
         </Appbar.Header>
         <ScrollView>
           <List.Section>
-            {previousEventsState}
+            {previousEventsViews}
           </List.Section>
         </ScrollView>
       </View>

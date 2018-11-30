@@ -15,8 +15,9 @@ export class CurrentEventState {
   @observable data = {
     events: []
   };
+  @observable currentEventsViews = [];
 
-  @observable selectedEventId;
+  @observable selectedEventId = 0;
 
   @action
   async fetchEvents(internalId) {
@@ -35,10 +36,9 @@ export class CurrentEventState {
       console.log(response);
       let responseJson = await response.json();
       this.data.events = responseJson;
-      console.log(responseJson);
+      // console.log(responseJson);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
-
 }

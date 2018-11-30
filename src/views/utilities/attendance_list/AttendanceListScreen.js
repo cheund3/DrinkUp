@@ -14,7 +14,8 @@ import {List} from "react-native-paper";
 export class AttendanceListScreen extends React.Component {
 
   async componentDidMount() {
-    await this.props.state.attendanceListState.fetchAttendees();
+    console.log("event id" + this.props.state.currentEventsState.selectedEventId);
+    await this.props.state.attendanceListState.fetchAttendees(this.props.state.currentEventsState.selectedEventId);
   }
 
   render() {
@@ -22,8 +23,9 @@ export class AttendanceListScreen extends React.Component {
     this.props.state.attendanceListState.data.attendees.forEach(function (attendee) {
       attendeesViews.push(
         <List.Item
-          title={attendee.firstName + attendee.lastName}
-          description={"21"}
+          key={attendee.id}
+          title={attendee.firstName + " " + attendee.lastName}
+          description={attendee.age}
         />
       );
     });

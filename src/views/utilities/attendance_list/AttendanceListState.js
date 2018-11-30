@@ -2,7 +2,7 @@
 
 import {action, observable} from "mobx";
 
-const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees";
+const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/getEvents";
 
 /**
  * Attendance List State
@@ -15,15 +15,17 @@ export class AttendanceListState {
   };
 
   @action
-  async fetchAttendees() {
+  async fetchAttendees(eventId) {
     try {
       let response = await fetch(URL, {
-        method: "GET",
+        method: "POST",
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
         },
-        body: "",
+        body: JSON.stringify({
+          eventId: eventId
+        }),
       });
       console.log(response);
       let responseJson = await response.json();

@@ -28,6 +28,7 @@ export class NewEventScreen extends Component {
             onSubmit={async (values) => {
               const internalId = this.props.state.userInterfaceState.internalId;
               await this.props.state.newEventState.handleCreate(values, internalId);
+              // await this.props.state.currentEventsState.fetchEvents(internalId);
               this.props.navigation.navigate("Current Events");
             }
             }>
