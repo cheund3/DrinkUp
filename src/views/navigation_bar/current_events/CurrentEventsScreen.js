@@ -15,19 +15,28 @@ import {Appbar, List} from "react-native-paper";
 export class CurrentEventsScreen extends React.Component {
 
   async componentDidMount() {
-    await this.props.state.currentEventsState.fetchEvents(8675309);
+    await this.props.state.currentEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
+  }
+
+  _handleButtonPress(id){
+    this.props.state.currentEventsState.selectedEventId = id;
+    console.log("hee");
+    this.props.navigation.navigate("SingleEventScreen");
   }
 
   render() {
     const currentEventsViews = [];
-    this.props.state.currentEventsState.data.events.forEach(function (event) {
+    const events = this.props.state.currentEventsState.data.events;
+    for(let i = 0; i< events.length; i++){
       currentEventsViews.push(
         <List.Item
-          title={event.name}
-          description={event.description}
+          key={events[i].id}
+          title={events[i].name}
+          description={events[i].description}
+          onPress={() => {this._handleButtonPress(events[i].id);}}
         />
       );
-    });
+    }
     return (
       <View style={basic.container}>
         <Appbar.Header>

@@ -17,11 +17,11 @@ export class SignInScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Appbar.Header>
-          <Appbar.Content
-            title={"Sign In"}
-          />
-        </Appbar.Header>
+        {/*<Appbar.Header>*/}
+          {/*<Appbar.Content*/}
+            {/*title={"Sign In"}*/}
+          {/*/>*/}
+        {/*</Appbar.Header>*/}
         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
           <Formik
             initValues={this.props.state.signInState.initValues}
@@ -30,6 +30,7 @@ export class SignInScreen extends React.Component {
 
               // Keyboard.dismiss();
               this.props.state.userInterfaceState.internalId = user;
+              console.log(" this is the internal id:" + this.props.state.userInterfaceState.internalId);
               if (user !== -1) {
                 this.props.navigation.navigate("Profile");
               }
@@ -51,7 +52,7 @@ export class SignInScreen extends React.Component {
                   secureTextEntry={true}
                 />
                 <Text style={{color: "red"}}>{this.props.state.signInState.error}</Text>
-                <Button onPress={handleSubmit} style={styles.button} mode="contained">Submit</Button>
+                <Button onPress={handleSubmit} style={styles.button} mode="contained">Sign In</Button>
               </View>
             )}
           </Formik>

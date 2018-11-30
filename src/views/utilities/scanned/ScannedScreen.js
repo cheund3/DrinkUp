@@ -20,7 +20,7 @@ export class ScannedScreen extends Component {
           {/*<Card.Cover source={{ uri: 'https://picsum.photos/700' }} />*/}
           <Card.Actions>
             <Button onPress={async () => {
-              await this.props.state.scannedState.enteringUser(this.props.state.scannedState.data);
+              await this.props.state.scannedState.enteringUser(this.props.state.scannedState.data, this.props.state.currentEventsState.selectedEventId);
               this.props.navigation.navigate("SingleEventScreen");
             }}>Entering</Button>
             <Button onPress={async () => {

@@ -2,7 +2,7 @@
 
 import {action, observable} from "mobx";
 
-const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users";
+const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/ownerEvents";
 
 
 /**
