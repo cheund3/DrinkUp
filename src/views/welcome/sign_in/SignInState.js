@@ -9,21 +9,21 @@ const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
 export class SignInState {
-  @observable user = null;
 
+  @observable user = null;
+  @observable error = "";
   @observable initValues = {
     email: "",
     password: "",
   };
 
-  @observable error = "";
-
-  @action
-  doSomething(){}
-
+  /**
+   * Attempt to sign in a user with the information from the sign in form
+   * @param values
+   * @returns {Promise<*>}
+   */
   @action
   async handleSubmit(values){
-    console.log(values);
     try {
       let response = await fetch(URL, {
         method: "POST",
@@ -39,7 +39,6 @@ export class SignInState {
       console.log(response);
       if(response.status === 201) {
         let responseJson = await response.json();
-        console.log(responseJson);
         this.user = responseJson;
         this.error = "";
         return responseJson.id;
@@ -48,7 +47,6 @@ export class SignInState {
         return -1;
       }
     } catch (error) {
-      console.log(error);
       this.error = "Invalid request";
       return -1;
     }

@@ -10,10 +10,13 @@ const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/
  */
 export class AttendanceListState {
 
-  @observable data = {
-    attendees: []
-  };
+  @observable data = { attendees: [] };
 
+  /**
+   * Fetch a list of attendees given an event idenfitier
+   * @param eventId
+   * @returns {Promise<void>}
+   */
   @action
   async fetchAttendees(eventId) {
     try {
@@ -30,13 +33,9 @@ export class AttendanceListState {
       console.log(response);
       let responseJson = await response.json();
       this.data.attendees = responseJson;
-      console.log(responseJson);
     } catch (error) {
-      console.log(error);
+      //TODO: error handling
     }
   }
-
-  @action
-  doSomething(){}
 
 }

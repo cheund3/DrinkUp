@@ -13,11 +13,18 @@ import {List} from "react-native-paper";
 @observer
 export class AttendanceListScreen extends React.Component {
 
+  /**
+   * Fetch a list of attendees when the component mounts
+   * @returns {Promise<void>}
+   */
   async componentDidMount() {
-    console.log("event id" + this.props.state.currentEventsState.selectedEventId);
     await this.props.state.attendanceListState.fetchAttendees(this.props.state.currentEventsState.selectedEventId);
   }
 
+  /**
+   * Convert the list of events into viewable items and render the screen
+   * @returns {*}
+   */
   render() {
     const attendeesViews = [];
     this.props.state.attendanceListState.data.attendees.forEach(function (attendee) {

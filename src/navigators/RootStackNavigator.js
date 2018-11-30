@@ -22,7 +22,9 @@ export const RootStackNavigator = createStackNavigator(
     SignIn: {
       screen: SignInScreen
     },
-    SignUp: SignUpScreen,
+    SignUp: {
+      screen: SignUpScreen
+    },
     BottomNavigationBar: {
       screen: BottomNavigationBar,
       navigationOptions: () => ({

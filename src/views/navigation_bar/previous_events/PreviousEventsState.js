@@ -12,10 +12,13 @@ const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/
 export class PreviousEventsState {
 
   @observable title = "Previous Events";
-  @observable data = {
-    events: []
-  };
+  @observable data = { events: [] };
 
+  /**
+   * Fetch a list of previous events in JSON format for a given internal administrator identifier
+   * @param internalId
+   * @returns {Promise<void>}
+   */
   @action
   async fetchEvents(internalId) {
     try {

@@ -1,7 +1,8 @@
 "use strict";
 
-import {action, observable} from "mobx";
-import {Keyboard} from "react-native";
+import { action, observable } from "mobx";
+import { Keyboard } from "react-native";
+
 const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events";
 
 /**
@@ -13,14 +14,23 @@ export class NewEventState {
   @observable title = "New Event";
   @observable initialValues = { eventName: "", description: "" };
 
+  /**
+   * Resets to initial state
+   * @returns {Promise<void>}
+   */
   async resetInitialValues(){
     this.initialValues.eventName = "";
     this.initialValues.description = "";
   }
 
+  /**
+   * Insert a new event for the logged in user
+   * @param values
+   * @param internalId {integer}
+   * @returns {Promise<void>}
+   */
   @action
   async handleCreate(values, internalId){
-    // console.log("Internal id in the new event state:" + internalId);
     Keyboard.dismiss();
     await fetch(URL, {
       method: "POST",
@@ -33,10 +43,9 @@ export class NewEventState {
         description: values.description,
         owner: internalId
       })
-    }).then(response => {
-      console.log(response.json());
+    }).then(response => { response.json();
     }).catch( (error) => {
-      error;
+      //TODO: add error handling
     });
     await this.resetInitialValues();
   }

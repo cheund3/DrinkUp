@@ -32,8 +32,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   rectangle: {
-    height: 299,
-    width: 69,
+    height: 500,
+    width: 120,
     borderWidth: 2,
     borderColor: "#8400EE",
     backgroundColor: "transparent",

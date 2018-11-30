@@ -12,13 +12,15 @@ const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/
 export class CurrentEventState {
 
   @observable title = "Current Events";
-  @observable data = {
-    events: []
-  };
+  @observable data = { events: [] };
   @observable currentEventsViews = [];
-
   @observable selectedEventId = 0;
 
+  /**
+   * Fetch a list of current events in JSON format for a given internal administrator identifier
+   * @param internalId
+   * @returns {Promise<void>}
+   */
   @action
   async fetchEvents(internalId) {
     try {
@@ -33,12 +35,9 @@ export class CurrentEventState {
           completed: false
         })
       });
-      console.log(response);
-      let responseJson = await response.json();
-      this.data.events = responseJson;
-      // console.log(responseJson);
+      this.data.events = response.json();
     } catch (error) {
-      // console.log(error);
+      // TODO: Implement error handling
     }
   }
 }

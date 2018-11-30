@@ -14,17 +14,25 @@ import {Appbar, List} from "react-native-paper";
 @observer
 export class PreviousEventsScreen extends React.Component {
 
+  /**
+   * Fetch a list of previous events when the component mounts
+   * @returns {Promise<void>}
+   */
   async componentDidMount() {
-    console.log(this.props.state.userInterfaceState.internalId);
     await this.props.state.previousEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
   }
 
-  _handleButtonPress(id){
+  /**
+   * Update the selected identifier and navigate to the single event screen
+   * @param id
+   */
+  handleButtonPress(id){
     this.props.state.previousEventsState.selectedEventId = id;
     this.props.navigation.navigate("SingleEventScreen");
   }
 
   render() {
+    // Generate a list of items representing each event
     const previousEventsViews = [];
     const events = this.props.state.previousEventsState.data.events;
     for(let i = 0; i< events.length; i++){
@@ -33,10 +41,12 @@ export class PreviousEventsScreen extends React.Component {
           key={events[i].id}
           title={events[i].name}
           description={events[i].description}
-          onPress={() => {this._handleButtonPress(events[i].id);}}
+          onPress={() => {this.handleButtonPress(events[i].id);}}
         />
       );
     }
+
+    // returned the entire view of the component
     return (
       <View style={basic.container}>
         <Appbar.Header>

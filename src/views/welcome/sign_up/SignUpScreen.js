@@ -1,11 +1,12 @@
 "use strict";
 
-import {styles} from "./SignUpStyle";
 import React from "react";
 import {Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 import {Formik} from "formik";
-import {Button, TextInput, Appbar} from "react-native-paper";
+import {Button, TextInput} from "react-native-paper";
+
+import {styles} from "./SignUpStyle";
 
 /**
  * Sign-Up Screen
@@ -14,22 +15,22 @@ import {Button, TextInput, Appbar} from "react-native-paper";
 @inject("state")
 @observer
 export class SignUpScreen extends React.Component {
+
+  /**
+   * Render the sign up screen with a form for an first name, last name, email, password, and a confirmed password
+   * @returns {*}
+   */
   render() {
     return (
       <View style={styles.container}>
-        {/*<Appbar.Header>*/}
-          {/*<Appbar.Content*/}
-            {/*title= {"Sign Up"}*/}
-          {/*/>*/}
-        {/*</Appbar.Header>*/}
         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
           <Formik
             initValues={this.props.state.signUpState.initValues}
             onSubmit={async (values) => {
               let user = await this.props.state.signUpState.handleSubmit(values);
-
-              // Keyboard.dismiss();
               this.props.state.userInterfaceState.internalId = user;
+
+              // Prevents a user from signing up unless the information is valid
               if(user !== -1) {
                 this.props.navigation.navigate("Profile");
               }

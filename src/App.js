@@ -17,6 +17,11 @@ export default class App extends React.Component {
     this.state = new RootState();
   }
 
+  /**
+   * Encapsulate the entire render of an application with Provider,
+   * allowing the insertion of the root state into the whole application
+   * @returns {*}
+   */
   render() {
     return (
       <Provider state={this.state}>

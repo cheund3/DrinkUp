@@ -3,7 +3,6 @@
 import {SignUpState} from "./views/welcome/sign_up/SignUpState";
 import {UserProfileState} from "./views/navigation_bar/user_profile/UserProfileState";
 import {UserInterfaceState} from "./UserInterfaceState";
-import {WelcomeState} from "./views/welcome/welcome/WelcomeState";
 import {SignInState} from "./views/welcome/sign_in/SignInState";
 import {NewEventState} from "./views/navigation_bar/new_event/NewEventState";
 import {CurrentEventState} from "./views/navigation_bar/current_events/CurrentEventState";
@@ -25,7 +24,6 @@ export class RootState {
   // Welcome
   signInState;
   signUpState;
-  welcomeState;
 
   // Navigation Bar
   newEventState;
@@ -39,12 +37,14 @@ export class RootState {
   scannedState;
   singleEventState;
 
+  /**
+   * Connect all states into a single root state
+   */
   constructor() {
     this.userInterfaceState = new UserInterfaceState();
 
     this.signInState = new SignInState();
     this.signUpState = new SignUpState();
-    this.welcomeState = new WelcomeState();
 
     this.newEventState = new NewEventState();
     this.currentEventsState = new CurrentEventState();

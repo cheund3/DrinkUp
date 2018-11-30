@@ -12,6 +12,7 @@ const UPDATE_LEFT_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.c
 export class ScannedState {
 
   @observable title = "Scanned";
+  @observable response = "response";
   @observable data = {
     firstName: "",
     middleName: "",
@@ -19,11 +20,15 @@ export class ScannedState {
     dob: "",
     licenseNumber: ""
   };
-  @observable res = "res";
 
+  /**
+   * Enter an attendee into the event
+   * @param data
+   * @param eventId
+   * @returns {Promise<void>}
+   */
   @action
   async enteringUser(data, eventId){
-    console.log("EVENT ID: " + data.dateOfBirth.substring(4, 6) + "-" + data.dateOfBirth.substring(6, 8)  + "-" + data.dateOfBirth.substring(0, 4));
     await fetch(ADD_USER_URL, {
       method: "POST",
       headers: {
@@ -39,12 +44,15 @@ export class ScannedState {
         eventId: eventId
       })
     }).then(response => {
-      console.log(response.json());
     }).catch( (error) => {
-      error;
+      //TODO: error handling
     });
   }
 
+  /**
+   * Mark an already attending user as leaving the event
+   * @returns {Promise<void>}
+   */
   @action
   async updateLeft(){
     await fetch(UPDATE_LEFT_URL, {
@@ -57,9 +65,8 @@ export class ScannedState {
         licenseNumber: this.data.licenseNumber
       })
     }).then(response => {
-      response.json();
     }).catch( (error) => {
-      error;
+      //TODO: error handling
     });
   }
 }

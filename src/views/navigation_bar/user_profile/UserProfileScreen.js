@@ -14,11 +14,19 @@ import {styles} from "./UserProfileStyle";
 @observer
 export class UserProfileScreen extends React.Component {
 
+  /**
+   * Fetch the administrator profile given the logged in administrators identifier
+   * @returns {Promise<void>}
+   */
   async componentDidMount() {
     this.props.state.userProfileState.user = this.props.state.userInterfaceState.internalId;
     await this.props.state.userProfileState.fetchProfile();
   }
 
+  /**
+   * Render an administrator's information
+   * @returns {*}
+   */
   render() {
     return (
       <View style={basic.container}>

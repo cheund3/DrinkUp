@@ -14,6 +14,11 @@ export class ScannerState {
   @observable parsedData= "dummy data";
   @observable cameraType = RNCamera.Constants.Type.back;
 
+  /**
+   * Parse the full name into first, middle, and last name
+   * @param sequence
+   * @returns {{firstName: string, middleName: string, lastName: string}}
+   */
   parseName(sequence){
     const name = sequence.slice(30);
     const splitName = name.split(",");
@@ -23,10 +28,18 @@ export class ScannerState {
     return {firstName, middleName, lastName};
   }
 
+  /**
+   * Remove the information code from prefix of data
+   * @param sequence
+   * @returns {*}
+   */
   removeCode(sequence){
     return sequence.slice(3);
   }
 
+  /**
+   * Parse the necessary data from a scanned driver's license identifier
+   */
   parseData(){
     const tempData = this.data.split("\n");
     let firstName, middleName, lastName, licenseNumber, dateOfBirth;
@@ -53,6 +66,11 @@ export class ScannerState {
     };
   }
 
+  /**
+   * Handle the button press and parse the scanned data
+   * @param e
+   * @returns {Promise<void>}
+   */
   @action
   async handleBarcodeRead(e) {
     this.data = e.data;

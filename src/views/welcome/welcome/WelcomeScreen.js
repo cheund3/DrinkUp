@@ -1,25 +1,28 @@
 "use strict";
 
-import {basic} from "../../../styles/basic";
 import {welcome} from "./WelcomeStyle";
 import React, {Component} from "react";
-import {Text, View, Image} from "react-native";
+import {Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 import {Button} from "react-native-paper";
 
+import {basic} from "../../../styles/basic";
+
 /**
- * welcome Screen
+ * Welcome Screen
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
 @inject("state")
 @observer
 export class WelcomeScreen extends Component {
+
+  /**
+   * Render the welcome screen with a sign in and sign up button
+   * @returns {*}
+   */
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        {/*<Image style={styles.image}*/}
-        {/*source={require("../../../assets/img/drinkupIcon.png")}*/}
-        {/*/>*/}
         <View style={welcome.title_container}>
           <Text style={welcome.title}> Drink Up </Text>
           <Text style={{textAlign: "center", bottom: -30}}>Please drink responsibly!</Text>

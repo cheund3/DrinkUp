@@ -1,11 +1,12 @@
 "use strict";
 
-import {styles} from "../sign_in/SignInStyle";
 import React from "react";
 import {Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
-import {Appbar, TextInput, Button, HelperText} from "react-native-paper";
+import {TextInput, Button} from "react-native-paper";
 import {Formik} from "formik";
+
+import {styles} from "../sign_in/SignInStyle";
 
 /**
  * Sign-In Screen
@@ -14,23 +15,22 @@ import {Formik} from "formik";
 @inject("state")
 @observer
 export class SignInScreen extends React.Component {
+
+  /**
+   * Render the sign in screen with a form for an email and password
+   * @returns {*}
+   */
   render() {
     return (
       <View style={styles.container}>
-        {/*<Appbar.Header>*/}
-          {/*<Appbar.Content*/}
-            {/*title={"Sign In"}*/}
-          {/*/>*/}
-        {/*</Appbar.Header>*/}
         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
           <Formik
             initValues={this.props.state.signInState.initValues}
             onSubmit={async (values) => {
               let user = await this.props.state.signInState.handleSubmit(values);
-
-              // Keyboard.dismiss();
               this.props.state.userInterfaceState.internalId = user;
-              console.log(" this is the internal id:" + this.props.state.userInterfaceState.internalId);
+
+              // Prevents a user from logging in unless the information is valid
               if (user !== -1) {
                 this.props.navigation.navigate("Profile");
               }

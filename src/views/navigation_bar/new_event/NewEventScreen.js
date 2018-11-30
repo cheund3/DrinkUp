@@ -1,11 +1,12 @@
 "use strict";
 
-import {basic} from "../../../styles/basic";
 import React, { Component } from "react";
 import { View } from "react-native";
 import { Formik } from "formik";
 import { Button, TextInput, Appbar } from "react-native-paper";
 import { inject, observer } from "mobx-react";
+
+import {basic} from "../../../styles/basic";
 
 /**
  * New Event Screen
@@ -14,6 +15,11 @@ import { inject, observer } from "mobx-react";
 @inject("state")
 @observer
 export class NewEventScreen extends Component {
+
+  /**
+   * Renders a form for inserting a new event
+   * @returns {*}
+   */
   render() {
     return (
       <View style={basic.container}>
@@ -26,9 +32,7 @@ export class NewEventScreen extends Component {
           <Formik
             initialValues={this.props.state.newEventState.initialValues}
             onSubmit={async (values) => {
-              const internalId = this.props.state.userInterfaceState.internalId;
-              await this.props.state.newEventState.handleCreate(values, internalId);
-              // await this.props.state.currentEventsState.fetchEvents(internalId);
+              await this.props.state.newEventState.handleCreate(values, this.props.state.userInterfaceState.internalId);
               this.props.navigation.navigate("Current Events");
             }
             }>
