@@ -3,6 +3,17 @@
 import {action, observable} from "mobx";
 import {RNCamera} from "react-native-camera";
 
+const abbreviations = {
+  "firstName": ["DAC", "DBP", "DCT"],
+  "lastName": ["DAB", "DBO", "DCS"],
+  "middleName": ["DAD", "DBQ"],
+  "fullName": ["DAA", "DBN"],
+  "dateOfBirth": ["DBB", "DBL"],
+  "licenseNumber": ["DAQ"],
+  "expirationDate": ["DBA"],
+  "sex": ["DBC"]
+};
+
 /**
  * Scanner State
  * @author Dylan L. Cheung <cheund3@rpi.edu>
@@ -66,6 +77,109 @@ export class ScannerState {
     };
   }
 
+  parserForReal() {
+    this.parsedData = {
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      licenseNumber: "",
+      dateOfBirth: "",
+      expirationDate: "",
+      sex: ""
+    };
+
+    const tempData = this.data.split("\n");
+    for(let i = 0; i < tempData.length; i++) {
+      let row = tempData[i];
+
+      //Parse the first name
+      for(let a = 0; a < abbreviations.firstName.length; a++) {
+        let abbrev = abbreviations.firstName[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.firstName = row.substring(index + 3);
+          break;
+        }
+      }
+
+      //Parse the last name
+      for(let a = 0; a < abbreviations.lastName.length; a++) {
+        let abbrev = abbreviations.lastName[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.lastName = row.substring(index + 3);
+          break;
+        }
+      }
+
+      //Parse the middle name
+      for(let a = 0; a < abbreviations.middleName.length; a++) {
+        let abbrev = abbreviations.middleName[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.middleName = row.substring(index + 3);
+          break;
+        }
+      }
+
+      //Parse the full name
+      for(let a = 0; a < abbreviations.fullName.length; a++) {
+        let abbrev = abbreviations.fullName[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          const name = row.slice(30);
+          const splitName = name.split(",");
+          this.parsedData.lastName = splitName[0];
+          this.parsedData.firstName = splitName[1];
+          this.parsedData.middleName = splitName[2];
+          break;
+        }
+      }
+
+      //Parse the data of birth
+      for(let a = 0; a < abbreviations.dateOfBirth.length; a++) {
+        let abbrev = abbreviations.dateOfBirth[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.dateOfBirth = row.substring(index + 3);
+          break;
+        }
+      }
+
+      //Parse the license number
+      for(let a = 0; a < abbreviations.licenseNumber.length; a++) {
+        let abbrev = abbreviations.licenseNumber[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.licenseNumber = row.substring(index + 3);
+          break;
+        }
+      }
+
+      //Parse the expiration date
+      for(let a = 0; a < abbreviations.expirationDate.length; a++) {
+        let abbrev = abbreviations.expirationDate[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.expirationDate = row.substring(index + 3);
+          break;
+        }
+      }
+
+      //Parse the sex
+      for(let a = 0; a < abbreviations.sex.length; a++) {
+        let abbrev = abbreviations.sex[a];
+        let index = row.indexOf(abbrev);
+        if(index !== -1) {
+          this.parsedData.sex = row.substring(index + 3);
+          break;
+        }
+      }
+    }
+    let dob = this.parsedData.dateOfBirth;
+    this.parsedData.dateOfBirth = dob.substring(0, 2) + "-" + dob.substring(2, 4) + "-" + dob.substring(4, 8);
+  }
+
   /**
    * Handle the button press and parse the scanned data
    * @param e
@@ -74,7 +188,12 @@ export class ScannerState {
   @action
   async handleBarcodeRead(e) {
     this.data = e.data;
-    this.parseData();
+    // console.log(e);
+    this.parserForReal();
+
+    // console.log("Parsed Data");
+
+    // console.log(this.parsedData);
   }
 
 }
