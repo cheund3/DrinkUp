@@ -31,6 +31,8 @@ export class AttendanceListState {
         }),
       });
       let responseJson = await response.json();
+      console.log("\n\nAttendance list fetching...");
+      console.log(responseJson);
       this.data.attendees = responseJson;
     } catch (error) {
       //TODO: error handling

@@ -35,7 +35,9 @@ export class CurrentEventState {
           completed: false
         })
       });
-      this.data.events = response.json();
+      this.data.events = await response.json();
+      console.log("\n\nCurrent events for user:");
+      console.log(response);
     } catch (error) {
       // TODO: Implement error handling
     }
