@@ -1,8 +1,8 @@
 "use strict";
 
-import {createStackNavigator} from "react-navigation";
-import {PreviousEventsScreen} from "../../views/navigation_bar/previous_events/PreviousEventsScreen";
-import {SingleEventScreen} from "../../views/utilities/single_event/SingleEventScreen";
+import { createStackNavigator } from "react-navigation";
+import { PreviousEventsScreen } from "../../views/navigation_bar/previous_events/PreviousEventsScreen";
+import { SingleEventScreen } from "../../views/utilities/single_event/SingleEventScreen";
 
 /**
  * Previous Events Stack

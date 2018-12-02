@@ -4,8 +4,8 @@
  */
 
 import React from "react";
-import {RootState} from "./RootState";
-import {Provider} from "mobx-react";
+import { Provider } from "mobx-react";
+import { RootState } from "./RootState";
 import { RootStackNavigator } from "./navigators/RootStackNavigator";
 
 export default class App extends React.Component {

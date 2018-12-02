@@ -33,12 +33,10 @@ export class PreviousEventsState {
           completed: true
         })
       });
-      console.log(response);
       let responseJson = await response.json();
       this.data.events = responseJson;
-      console.log(responseJson);
     } catch (error) {
-      console.log(error);
+      //TODO: implement error handling
     }
   }
 

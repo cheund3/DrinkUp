@@ -1,6 +1,6 @@
 "use strict";
 
-import {action, observable} from "mobx";
+import { action, observable } from "mobx";
 
 const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users/signin";
 
@@ -36,7 +36,6 @@ export class SignInState {
           password: values.password,
         }),
       });
-      console.log(response);
       if(response.status === 201) {
         let responseJson = await response.json();
         this.user = responseJson;

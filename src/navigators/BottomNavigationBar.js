@@ -3,11 +3,10 @@
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation";
 
-
-import {UserProfileScreen} from "../views/navigation_bar/user_profile/UserProfileScreen";
-import {previousEventStack} from "./navigation_bar/PreviousEventsStack";
-import {currentEventsStack} from "./navigation_bar/CurrentEventsStack";
-import {createNewEventsStack} from "./navigation_bar/CreateNewEventStack";
+import { UserProfileScreen } from "../views/navigation_bar/user_profile/UserProfileScreen";
+import { previousEventStack } from "./navigation_bar/PreviousEventsStack";
+import { currentEventsStack } from "./navigation_bar/CurrentEventsStack";
+import { createNewEventsStack } from "./navigation_bar/CreateNewEventStack";
 
 /**
  * Bottom Navigation Bar

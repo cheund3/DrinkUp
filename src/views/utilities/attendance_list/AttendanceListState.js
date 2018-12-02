@@ -30,7 +30,6 @@ export class AttendanceListState {
           eventId: eventId
         }),
       });
-      console.log(response);
       let responseJson = await response.json();
       this.data.attendees = responseJson;
     } catch (error) {
