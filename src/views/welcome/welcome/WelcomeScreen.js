@@ -1,12 +1,12 @@
 "use strict";
 
-import {welcome} from "./WelcomeStyle";
-import React, {Component} from "react";
-import {Text, View} from "react-native";
-import {inject, observer} from "mobx-react";
-import {Button} from "react-native-paper";
+import React, { Component } from "react";
+import { Text, View } from "react-native";
+import { inject, observer } from "mobx-react";
+import { Button } from "react-native-paper";
 
-import {basic} from "../../../styles/basic";
+import { basic } from "../../../styles/basic";
+import { welcome } from "./WelcomeStyle";
 
 /**
  * Welcome Screen

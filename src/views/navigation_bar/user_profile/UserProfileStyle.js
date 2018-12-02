@@ -19,10 +19,6 @@ export const styles = StyleSheet.create({
     padding: 1,
     width: "100%",
   },
-  // textInput: {
-  //   height: 80,
-  //   width: "80%",
-  // },
   button: {
     color: "blue",
     marginTop: 16,

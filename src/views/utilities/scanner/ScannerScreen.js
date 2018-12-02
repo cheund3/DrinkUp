@@ -20,7 +20,6 @@ export class ScannerScreen extends Component {
   async _handleBarCodeRead(e) {
     await this.props.state.scannerState.handleBarcodeRead(e);
     this.props.state.scannedState.data = JSON.parse(JSON.stringify(this.props.state.scannerState.parsedData));
-    console.log(this.props.state.scannedState.data);
     this.props.navigation.navigate("Scanned");
   }
 

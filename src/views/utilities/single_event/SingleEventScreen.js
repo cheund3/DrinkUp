@@ -2,9 +2,10 @@
 
 import React from "react";
 import { View } from "react-native";
-import {Appbar, Button} from "react-native-paper";
-import {inject, observer} from "mobx-react";
-import {basic} from "../../../styles/basic";
+import { Button} from "react-native-paper";
+import { inject, observer } from "mobx-react";
+
+import { basic } from "../../../styles/basic";
 
 /**
  * Single Event Screen
@@ -16,11 +17,6 @@ export class SingleEventScreen extends React.Component {
   render() {
     return (
       <View style={basic.container}>
-        {/*<Appbar.Header>*/}
-          {/*<Appbar.Content*/}
-            {/*title= {this.props.state.singleEventState.title}*/}
-          {/*/>*/}
-        {/*</Appbar.Header>*/}
         <View style={basic.content}>
           <Button
             style={basic.button}

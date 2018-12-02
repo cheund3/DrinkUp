@@ -1,7 +1,7 @@
 "use strict";
 
-import {action, observable} from "mobx";
-import {RNCamera} from "react-native-camera";
+import { action, observable } from "mobx";
+import { RNCamera } from "react-native-camera";
 
 const abbreviations = {
   "firstName": ["DAC", "DBP", "DCT"],
@@ -49,6 +49,7 @@ export class ScannerState {
   }
 
   /**
+   * DEPRECATED
    * Parse the necessary data from a scanned driver's license identifier
    */
   parseData(){
@@ -77,6 +78,9 @@ export class ScannerState {
     };
   }
 
+  /**
+   * TODO: comment and rename
+   */
   parserForReal() {
     this.parsedData = {
       firstName: "",
@@ -188,12 +192,7 @@ export class ScannerState {
   @action
   async handleBarcodeRead(e) {
     this.data = e.data;
-    // console.log(e);
     this.parserForReal();
-
-    // console.log("Parsed Data");
-
-    // console.log(this.parsedData);
   }
 
 }

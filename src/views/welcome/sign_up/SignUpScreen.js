@@ -1,12 +1,12 @@
 "use strict";
 
 import React from "react";
-import {Text, View} from "react-native";
-import {inject, observer} from "mobx-react";
-import {Formik} from "formik";
-import {Button, TextInput} from "react-native-paper";
+import { Text, View } from "react-native";
+import { inject, observer } from "mobx-react";
+import { Formik } from "formik";
+import { Button, TextInput } from "react-native-paper";
 
-import {styles} from "./SignUpStyle";
+import { styles } from "./SignUpStyle";
 
 /**
  * Sign-Up Screen

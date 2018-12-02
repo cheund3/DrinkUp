@@ -3,7 +3,7 @@
 import { createStackNavigator } from "react-navigation";
 import { SingleEventScreen } from "../views/utilities/single_event/SingleEventScreen";
 import { ScannerScreen } from "../views/utilities/scanner/ScannerScreen";
-import {ScannedScreen} from "../views/utilities/scanned/ScannedScreen";
+import { ScannedScreen } from "../views/utilities/scanned/ScannedScreen";
 import { AttendanceListScreen } from "../views/utilities/attendance_list/AttendanceListScreen";
 
 /**

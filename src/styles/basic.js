@@ -1,9 +1,10 @@
 "use strict";
 
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 /**
  * Basic React Native Paper Style
+ * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
 export const basic = StyleSheet.create({
   container: {
