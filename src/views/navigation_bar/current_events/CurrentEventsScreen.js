@@ -1,11 +1,11 @@
 "use strict";
 
 import React from "react";
-import {ScrollView,Text, View} from "react-native";
-import {inject, observer} from "mobx-react";
-import {Appbar, List} from "react-native-paper";
+import { ScrollView, View } from "react-native";
+import { inject, observer } from "mobx-react";
+import { Appbar, List } from "react-native-paper";
 
-import {basic} from "../../../styles/basic";
+import { basic } from "../../../styles/basic";
 
 /**
  * Current Events Screen

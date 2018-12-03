@@ -16,6 +16,12 @@ import {basic} from "../../../styles/basic";
 @observer
 export class NewEventScreen extends Component {
 
+  async handleButtonPress(values){
+    await this.props.state.newEventState.handleCreate(values, this.props.state.userInterfaceState.internalId);
+    await this.props.state.currentEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
+    this.props.navigation.navigate("Current Events");
+  }
+
   /**
    * Renders a form for inserting a new event
    * @returns {*}
@@ -31,10 +37,7 @@ export class NewEventScreen extends Component {
         <View style={basic.content}>
           <Formik
             initialValues={this.props.state.newEventState.initialValues}
-            onSubmit={async (values) => {
-              await this.props.state.newEventState.handleCreate(values, this.props.state.userInterfaceState.internalId);
-              this.props.navigation.navigate("Current Events");
-            }
+            onSubmit={async (values) => {await this.handleButtonPress(values);}
             }>
             {({ handleChange, handleSubmit, values }) => (
               <View>

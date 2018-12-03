@@ -1,3 +1,5 @@
+"use strict";
+
 import { View } from "react-native";
 import { Button, Card, Paragraph, Title} from "react-native-paper";
 import { inject, observer } from "mobx-react";
