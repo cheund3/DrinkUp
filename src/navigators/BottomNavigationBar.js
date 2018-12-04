@@ -7,6 +7,7 @@ import { UserProfileScreen } from "../views/navigation_bar/user_profile/UserProf
 import { previousEventStack } from "./navigation_bar/PreviousEventsStack";
 import { currentEventsStack } from "./navigation_bar/CurrentEventsStack";
 import { createNewEventsStack } from "./navigation_bar/CreateNewEventStack";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 /**
  * Bottom Navigation Bar
@@ -14,7 +15,13 @@ import { createNewEventsStack } from "./navigation_bar/CreateNewEventStack";
  */
 export default createBottomTabNavigator(
   {
-    "Profile": UserProfileScreen,
+    Profile: {
+      screen: UserProfileScreen,
+      navigationOptions: () => ({
+        header: null,
+        icon: (<Icon name="rocket" size={30} color="#900" />)
+      })
+    },
     "Previous Events": previousEventStack,
     "Current Events": currentEventsStack,
     "New Event": createNewEventsStack,
