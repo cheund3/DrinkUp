@@ -17,6 +17,10 @@ export class SingleEventScreen extends React.Component {
 
   async handleEndEventButton(){
     await this.props.state.singleEventState.endEvent(this.props.state.currentEventsState.selectedEventId);
+
+    // Reload current and previous event screens with updated information
+    await this.props.state.currentEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
+    await this.props.state.previousEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
     this.props.navigation.navigate("Previous Events");
   }
 
