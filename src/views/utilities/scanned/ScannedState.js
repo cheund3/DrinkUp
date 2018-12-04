@@ -3,7 +3,7 @@
 import {action, observable} from "mobx";
 
 const ADD_USER_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/";
-const UPDATE_LEFT_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/left/"
+const UPDATE_LEFT_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/left/";
 
 /**
  * Scanned State
@@ -29,7 +29,7 @@ export class ScannedState {
    */
   @action
   async enteringUser(data, eventId){
-    await fetch(ADD_USER_URL, {
+    let payload = {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -39,14 +39,22 @@ export class ScannedState {
         firstName: data.firstName,
         middleName: data.middleName,
         lastName: data.lastName,
-        dob: data.dateOfBirth.substring(4, 6) + "-" + data.dateOfBirth.substring(6, 8)  + "-" + data.dateOfBirth.substring(0, 4),
+        dob: data.dateOfBirth,
         licenseNumber: data.licenseNumber,
         eventId: eventId
       })
-    }).then(response => {
-    }).catch( (error) => {
+    };
+
+    // console.log("Scanned payload!");
+    // console.log(payload);
+
+    await fetch(ADD_USER_URL, payload)
+      .then(response => {
+        console.log(response);
+      }).catch( (error) => {
       //TODO: error handling
-    });
+        console.log(error);
+      });
   }
 
   /**

@@ -49,6 +49,20 @@ export class ScannerState {
   }
 
   /**
+   * Takes a string date parsed from the scanner and returns a correctly formatted date
+   *
+   * @param str date from the scanner
+   */
+  convertDate(str) {
+    let first = parseInt(str.substring(0, 4));
+    if(first < 1300) {
+      return str.substring(0, 2) + "-" + str.substring(2, 4) + "-" + str.substring(4, 8);
+    } else {
+      return str.substring(4, 6) + "-" + str.substring(6, 8) + "-" + str.substring(0, 4);
+    }
+  }
+
+  /**
    * DEPRECATED
    * Parse the necessary data from a scanned driver's license identifier
    */
@@ -77,6 +91,8 @@ export class ScannerState {
       dateOfBirth: dateOfBirth
     };
   }
+
+
 
   /**
    * TODO: comment and rename
@@ -145,7 +161,7 @@ export class ScannerState {
         let abbrev = abbreviations.dateOfBirth[a];
         let index = row.indexOf(abbrev);
         if(index !== -1) {
-          this.parsedData.dateOfBirth = row.substring(index + 3);
+          this.parsedData.dateOfBirth = this.convertDate(row.substring(index + 3));
           break;
         }
       }
@@ -165,7 +181,7 @@ export class ScannerState {
         let abbrev = abbreviations.expirationDate[a];
         let index = row.indexOf(abbrev);
         if(index !== -1) {
-          this.parsedData.expirationDate = row.substring(index + 3);
+          this.parsedData.expirationDate = this.convertDate(row.substring(index + 3));
           break;
         }
       }
@@ -180,8 +196,6 @@ export class ScannerState {
         }
       }
     }
-    let dob = this.parsedData.dateOfBirth;
-    this.parsedData.dateOfBirth = dob.substring(0, 2) + "-" + dob.substring(2, 4) + "-" + dob.substring(4, 8);
   }
 
   /**
@@ -193,6 +207,8 @@ export class ScannerState {
   async handleBarcodeRead(e) {
     this.data = e.data;
     this.parserForReal();
+    // console.log("Reload");
+    // console.log(JSON.stringify(this.parsedData));
   }
 
 }
