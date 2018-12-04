@@ -6,6 +6,7 @@ import { ScannerScreen } from "../views/utilities/scanner/ScannerScreen";
 import { ScannedScreen } from "../views/utilities/scanned/ScannedScreen";
 import { AttendanceListScreen } from "../views/utilities/attendance_list/AttendanceListScreen";
 
+
 /**
  * Single Event Stack Navigator
  * @author Dylan L. Cheung <cheund3@rpi.edu>
@@ -15,7 +16,7 @@ export default createStackNavigator(
     SingleEventScreen: {
       screen: SingleEventScreen,
       navigationOptions: () => ({
-        header: null
+        header: null,
       })
     },
     Scanner: {
