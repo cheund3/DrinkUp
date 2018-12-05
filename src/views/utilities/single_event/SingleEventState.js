@@ -13,7 +13,7 @@ export class SingleEventState {
   @action
   async endEvent(id){
     await fetch(URL + id, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
