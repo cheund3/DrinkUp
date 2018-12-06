@@ -32,7 +32,7 @@ export class SignInScreen extends React.Component {
 
               // Prevents a user from logging in unless the information is valid
               if (user !== -1) {
-                this.props.navigation.navigate("Profile");
+                this.props.navigation.navigate("ProfileScreen");
               }
             }
             }>

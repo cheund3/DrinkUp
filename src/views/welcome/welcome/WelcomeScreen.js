@@ -29,10 +29,10 @@ export class WelcomeScreen extends Component {
         </View>
         <View style={welcome.content_container}>
           <Button style={basic.button} mode="contained"
-            onPress={() => this.props.navigation.navigate("SignIn")}
+            onPress={() => this.props.navigation.navigate("SignInScreen")}
           ><Text>Sign In</Text></Button>
           <Button style={basic.button} mode="contained"
-            onPress={() => this.props.navigation.navigate("SignUp")}
+            onPress={() => this.props.navigation.navigate("SignUpScreen")}
           ><Text>Sign Up</Text></Button>
         </View>
       </View>

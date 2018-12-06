@@ -25,12 +25,12 @@ export class ScannedScreen extends Component {
           </Card.Content>
           <Card.Actions>
             <Button onPress={async () => {
-              await this.props.state.scannedState.enteringUser(this.props.state.scannedState.data, this.props.state.currentEventsState.selectedEventId);
-              this.props.navigation.navigate("SingleEventScreen");
+              await this.props.state.scannedState.enteringUser(this.props.state.scannedState.data, this.props.state.userInterfaceState.selectedEventId);
+              this.props.navigation.navigate("CurrentSingleEventScreen");
             }}>Entering</Button>
             <Button onPress={async () => {
               await this.props.state.scannedState.updateLeft();
-              this.props.navigation.navigate("SingleEventScreen");
+              this.props.navigation.navigate("CurrentSingleEventScreen");
             }}>Leaving</Button>
           </Card.Actions>
         </Card>

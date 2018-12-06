@@ -207,8 +207,6 @@ export class ScannerState {
   async handleBarcodeRead(e) {
     this.data = e.data;
     this.parserForReal();
-    // console.log("Reload");
-    // console.log(JSON.stringify(this.parsedData));
   }
 
 }

@@ -28,8 +28,8 @@ export class CurrentEventsScreen extends React.Component {
    * @param id
    */
   handleButtonPress(id){
-    this.props.state.currentEventsState.selectedEventId = id;
-    this.props.navigation.navigate("SingleEventScreen");
+    this.props.state.userInterfaceState.selectedEventId = id;
+    this.props.navigation.navigate("CurrentSingleEventScreen");
   }
 
   render() {

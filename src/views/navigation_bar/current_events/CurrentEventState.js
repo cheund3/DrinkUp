@@ -4,7 +4,6 @@ import {action, observable} from "mobx";
 
 const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/ownerEvents";
 
-
 /**
  * Current Event State
  * @author Dylan L. Cheung <cheund3@rpi.edu>
@@ -36,8 +35,6 @@ export class CurrentEventState {
         })
       });
       this.data.events = await response.json();
-      console.log("\n\nCurrent events for user:");
-      console.log(response);
     } catch (error) {
       // TODO: Implement error handling
     }

@@ -13,16 +13,16 @@ import BottomNavigationBar from "./BottomNavigationBar";
  */
 export const RootStackNavigator = createStackNavigator(
   {
-    Welcome: {
+    WelcomeScreen: {
       screen: WelcomeScreen,
       navigationOptions: () => ({
         header: null
       })
     },
-    SignIn: {
+    SignInScreen: {
       screen: SignInScreen
     },
-    SignUp: {
+    SignUpScreen: {
       screen: SignUpScreen
     },
     BottomNavigationBar: {
@@ -33,6 +33,6 @@ export const RootStackNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Welcome",
+    initialRouteName: "WelcomeScreen",
   }
 );

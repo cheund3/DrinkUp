@@ -9,8 +9,9 @@ import { CurrentEventState } from "./views/navigation_bar/current_events/Current
 import { PreviousEventsState } from "./views/navigation_bar/previous_events/PreviousEventsState";
 import { AttendanceListState } from "./views/utilities/attendance_list/AttendanceListState";
 import { ScannerState } from "./views/utilities/scanner/ScannerState";
-import { SingleEventState } from "./views/utilities/single_event/SingleEventState";
 import { ScannedState } from "./views/utilities/scanned/ScannedState";
+import { CurrentSingleEventState } from "./views/utilities/single_event/current_single_event/CurrentSingleEventState";
+import { PreviousSingleEventState } from "./views/utilities/single_event/previous_single_event/PreviousSingleEventState";
 
 /**
  * Root State
@@ -35,7 +36,8 @@ export class RootState {
   attendanceListState;
   scannerState;
   scannedState;
-  singleEventState;
+  currentSingleEventState;
+  previousSingleEventState;
 
   /**
    * Connect all states into a single root state
@@ -54,7 +56,8 @@ export class RootState {
     this.attendanceListState = new AttendanceListState();
     this.scannerState = new ScannerState();
     this.scannedState = new ScannedState();
-    this.singleEventState = new SingleEventState();
+    this.currentSingleEventState = new CurrentSingleEventState();
+    this.previousSingleEventState = new PreviousSingleEventState();
 
   }
 

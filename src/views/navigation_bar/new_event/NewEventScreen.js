@@ -6,7 +6,7 @@ import { Formik } from "formik";
 import { Button, TextInput, Appbar } from "react-native-paper";
 import { inject, observer } from "mobx-react";
 
-import {basic} from "../../../styles/basic";
+import { basic } from "../../../styles/basic";
 
 /**
  * New Event Screen
@@ -19,7 +19,7 @@ export class NewEventScreen extends Component {
   async handleButtonPress(values){
     await this.props.state.newEventState.handleCreate(values, this.props.state.userInterfaceState.internalId);
     await this.props.state.currentEventsState.fetchEvents(this.props.state.userInterfaceState.internalId);
-    this.props.navigation.navigate("Current Events");
+    this.props.navigation.navigate("CurrentEventsStack");
   }
 
   /**

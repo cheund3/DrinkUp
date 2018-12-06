@@ -1,13 +1,14 @@
 "use strict";
 
 import React from "react";
-import { ScrollView, Text, View} from "react-native";
-import {inject, observer} from "mobx-react";
-import {basic} from "../../../styles/basic";
-import {Appbar, List} from "react-native-paper";
+import { ScrollView, View } from "react-native";
+import { inject, observer } from "mobx-react";
+import { Appbar, Checkbox, List } from "react-native-paper";
+
+import { basic } from "../../../styles/basic";
 
 /**
- * Previous Event Screen
+ * Previous Events Screen
  * @author Dylan L. Cheung <cheund3@rpi.edu>
  */
 @inject("state")
@@ -27,8 +28,8 @@ export class PreviousEventsScreen extends React.Component {
    * @param id
    */
   handleButtonPress(id){
-    this.props.state.previousEventsState.selectedEventId = id;
-    this.props.navigation.navigate("SingleEventScreen");
+    this.props.state.userInterfaceState.selectedEventId = id;
+    this.props.navigation.navigate("PreviousSingleEventScreen");
   }
 
   render() {
@@ -41,6 +42,7 @@ export class PreviousEventsScreen extends React.Component {
           key={events[i].id}
           title={events[i].name}
           description={events[i].description}
+          right={() => {events[i].updatedAt}}
           onPress={() => {this.handleButtonPress(events[i].id);}}
         />
       );

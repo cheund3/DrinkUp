@@ -16,5 +16,8 @@ export const basic = StyleSheet.create({
   },
   button: {
     marginTop: 16
+  },
+  color: {
+    color: "#8400EE"
   }
 });

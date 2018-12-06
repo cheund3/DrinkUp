@@ -2,7 +2,8 @@
 
 import { createStackNavigator } from "react-navigation";
 import { PreviousEventsScreen } from "../../views/navigation_bar/previous_events/PreviousEventsScreen";
-import { SingleEventScreen } from "../../views/utilities/single_event/SingleEventScreen";
+import { PreviousSingleEventScreen } from "../../views/utilities/single_event/previous_single_event/PreviousSingleEventScreen";
+import { AttendanceListScreen } from "../../views/utilities/attendance_list/AttendanceListScreen";
 
 /**
  * Previous Events Stack
@@ -10,15 +11,16 @@ import { SingleEventScreen } from "../../views/utilities/single_event/SingleEven
  */
 export const previousEventStack = createStackNavigator(
   {
-    PreviousEvents: {
+    PreviousEventsScreen: {
       screen: PreviousEventsScreen,
       navigationOptions: () => ({
         header: null
       })
     },
-    SingleEventScreen: SingleEventScreen
+    PreviousSingleEventScreen: PreviousSingleEventScreen,
+    AttendanceListScreen: AttendanceListScreen,
   },
   {
-    initialRouteName: "PreviousEvents"
+    initialRouteName: "PreviousEventsScreen"
   }
 );

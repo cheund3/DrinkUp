@@ -1,6 +1,6 @@
 "use strict";
 
-import {action, observable} from "mobx";
+import { action, observable } from "mobx";
 
 const URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/getEvents";
 
@@ -13,7 +13,7 @@ export class AttendanceListState {
   @observable data = { attendees: [] };
 
   /**
-   * Fetch a list of attendees given an event idenfitier
+   * Fetch a list of attendees given an event identifier
    * @param eventId
    * @returns {Promise<void>}
    */
@@ -30,10 +30,7 @@ export class AttendanceListState {
           eventId: eventId
         }),
       });
-      let responseJson = await response.json();
-      console.log("\n\nAttendance list fetching...");
-      console.log(responseJson);
-      this.data.attendees = responseJson;
+      this.data.attendees = await response.json();
     } catch (error) {
       //TODO: error handling
     }

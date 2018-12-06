@@ -1,13 +1,14 @@
 "use strict";
 
-import React from "react";
 import { createBottomTabNavigator } from "react-navigation";
+import React from "react";
+import AntDesignIcon from "react-native-vector-icons/AntDesign";
+import FeatherIcon from "react-native-vector-icons/Feather";
 
 import { UserProfileScreen } from "../views/navigation_bar/user_profile/UserProfileScreen";
-import { previousEventStack } from "./navigation_bar/PreviousEventsStack";
-import { currentEventsStack } from "./navigation_bar/CurrentEventsStack";
-import { createNewEventsStack } from "./navigation_bar/CreateNewEventStack";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { NewEventScreen } from "../views/navigation_bar/new_event/NewEventScreen";
+import { previousEventStack } from "./bottom_navigation_bar/PreviousEventsStack";
+import { currentEventsStack } from "./bottom_navigation_bar/CurrentEventsStack";
 
 /**
  * Bottom Navigation Bar
@@ -15,18 +16,48 @@ import Icon from "react-native-vector-icons/FontAwesome";
  */
 export default createBottomTabNavigator(
   {
-    Profile: {
+    ProfileScreen: {
       screen: UserProfileScreen,
       navigationOptions: () => ({
         header: null,
-        icon: (<Icon name="rocket" size={30} color="#900" />)
+        tabBarIcon: (<FeatherIcon name="user" size={20} color="#8400EE" />),
+        tabBarOptions: {
+          showLabel: false
+        }
       })
     },
-    "Previous Events": previousEventStack,
-    "Current Events": currentEventsStack,
-    "New Event": createNewEventsStack,
+    PreviousEventsStack: {
+      screen: previousEventStack,
+      navigationOptions: () => ({
+        header: null,
+        tabBarIcon: (<FeatherIcon name="archive" size={20} color="#8400EE" />),
+        tabBarOptions: {
+          showLabel: false
+        }
+      })
+    },
+    CurrentEventsStack: {
+      screen: currentEventsStack,
+      navigationOptions: () => ({
+        header: null,
+        tabBarIcon: (<AntDesignIcon name="profile" size={20} color="#8400EE" />),
+        tabBarOptions: {
+          showLabel: false
+        }
+      })
+    },
+    NewEventScreen: {
+      screen : NewEventScreen,
+      navigationOptions: () => ({
+        header: null,
+        tabBarIcon: (<AntDesignIcon name="addfile" size={20} color="#8400EE" />),
+        tabBarOptions: {
+          showLabel: false
+        }
+      })
+    }
   },
   {
-    initialRouteName: "Profile"
+    initialRouteName: "ProfileScreen"
   }
 );

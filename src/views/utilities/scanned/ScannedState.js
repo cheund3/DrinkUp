@@ -1,6 +1,6 @@
 "use strict";
 
-import {action, observable} from "mobx";
+import { action, observable } from "mobx";
 
 const ADD_USER_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/";
 const UPDATE_LEFT_URL = "http://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/left/";
@@ -44,9 +44,6 @@ export class ScannedState {
         eventId: eventId
       })
     };
-
-    // console.log("Scanned payload!");
-    // console.log(payload);
 
     await fetch(ADD_USER_URL, payload)
       .then(response => {

@@ -26,7 +26,7 @@ export class NewEventState {
   /**
    * Insert a new event for the logged in user
    * @param values
-   * @param internalId {integer}
+   * @param internalId {number}
    * @returns {Promise<void>}
    */
   @action
