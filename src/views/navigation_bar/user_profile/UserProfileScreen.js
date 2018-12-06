@@ -83,7 +83,7 @@ export class UserProfileScreen extends React.Component {
               </View>
             )}
           </Formik>
-          <Button onPress={() => this.props.navigation.navigate("WelcomeScreen")} style={styles.button} mode="contained">Log out</Button>
+          <Button onPress={() => this.props.navigation.navigate("WelcomeScreen")} style={styles.button} >Log out</Button>
         </View>
       </View>
     );

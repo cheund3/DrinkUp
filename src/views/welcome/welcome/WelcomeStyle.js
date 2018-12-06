@@ -43,6 +43,6 @@ export const welcome = StyleSheet.create({
     alignItems: "center"
   },
   title: {
-    fontSize: 69
+    fontSize: 69,
   }
 });
