@@ -15,6 +15,18 @@ import { basic } from "../../../../styles/basic";
 @observer
 export class CurrentSingleEventScreen extends React.Component {
 
+  /**
+   * Fetch the the selected current single event when the component mounts
+   * @returns {Promise<void>}
+   */
+  async componentDidMount() {
+    await this.props.state.currentSingleEventState.fetchEvent(this.props.state.userInterfaceState.selectedEventId);
+  }
+
+  /**
+   * Handle the button press for ending an event
+   * @returns {Promise<void>}
+   */
   async handleEndEventButton(){
     await this.props.state.currentSingleEventState.endEvent(this.props.state.userInterfaceState.selectedEventId);
 
@@ -28,10 +40,14 @@ export class CurrentSingleEventScreen extends React.Component {
     return (
       <View style={basic.centered_container}>
         <View style={basic.top}>
-          <Title> Event Title </Title>
-          <Paragraph> Start Time: 9:00 am 5/11/2018 </Paragraph>
-          <Paragraph> Attendee count: 147  </Paragraph>
-          <Paragraph> Description: asddddddddddrddsdfgsdfgsdfdddddddasdfasdfgdddgssdfgsdfgdfgsdfgsdddfgadfgsdfgddasdhhhdddddddfgfgsdfgssdfgsddfgasdvasdfgsdfs  </Paragraph>
+          <Title> {this.props.state.currentSingleEventState.event.title} </Title>
+          <Paragraph/>
+          <Paragraph/>
+          <Paragraph> Start Time: </Paragraph>
+          <Paragraph>       {this.props.state.currentSingleEventState.event.startTime}</Paragraph>
+          <Paragraph/>
+          <Paragraph> Description: </Paragraph>
+          <Paragraph>       {this.props.state.currentSingleEventState.event.description}</Paragraph>
         </View>
         <View style={basic.bottom}>
           <Button
