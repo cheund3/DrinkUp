@@ -16,4 +16,4 @@ _Authored by:_
 Development Environment
 -------------
 1. Install [React Native] (https://facebook.github.io/react-native/docs/getting-started.html) under the tab "_Building Projects with Native Code_"
-2. From the root directory of the project, run "_react-native run-android_"
+2. From the root directory of the project, run `react-native run-android`
